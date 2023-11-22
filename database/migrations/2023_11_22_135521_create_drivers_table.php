@@ -37,8 +37,7 @@ return new class extends Migration
             $table->string('bank_account', 255);
             $table->string('account_name', 255);
             $table->rememberToken();
-            $table->timestamps('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 

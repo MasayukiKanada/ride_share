@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('offer_car', 255);
             $table->tinyInteger('offer_capacity');
             $table->integer('offer_fee');
-            $table->timestamps('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 

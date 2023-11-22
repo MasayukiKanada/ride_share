@@ -25,8 +25,7 @@ return new class extends Migration
             $table->integer('con_fee');
             $table->tinyInteger('con_number');
             $table->tinyInteger('con_eva')->nullable();
-            $table->timestamps('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 

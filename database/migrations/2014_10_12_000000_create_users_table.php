@@ -27,8 +27,7 @@ return new class extends Migration
             $table->tinyInteger('gender');
             $table->string('password', 255);
             $table->rememberToken();
-            $table->timestamps('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 
