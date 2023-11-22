@@ -15,7 +15,17 @@ return new class extends Migration
     {
         Schema::create('driver_offers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('driver_id')->constrained('drivers');
+            $table->date('offer_date');
+            $table->string('offer_on_place', 255);
+            $table->time('offer_on_time');
+            $table->string('offer_off_place', 255);
+            $table->time('offer_off_time');
+            $table->string('offer_car', 255);
+            $table->tinyInteger('offer_capacity');
+            $table->integer('offer_fee');
+            $table->timestamps('created_at');
+            $table->timestamp('updated_at');
         });
     }
 
