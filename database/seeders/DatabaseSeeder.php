@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,12 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(30)->create();
-        \App\Models\Driver::factory(30)->create();
-        \App\Models\Contract::factory(100)->create();
-        \App\Models\DriverOffer::factory(100)->create();
+        \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
+        // \App\Models\Driver::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);

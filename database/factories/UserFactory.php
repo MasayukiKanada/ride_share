@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'tel' => fake()->phoneNumber(),
-            'zip' => fake()->postcode(),
+            'zip' => fake()->numberBetween(0000000,9999999),
             'pref' => fake()->prefecture(),
             'town' => fake()->city(),
             'address' => fake()->streetAddress(),

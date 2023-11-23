@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Contract>
@@ -17,8 +18,8 @@ class ContractFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => fake()->numberBetween(1, 30),
-            'driver_id' => fake()->numberBetween(1, 30),
+            'user_id' => fake()->numberBetween(1, 10),
+            'driver_id' => fake()->numberBetween(1, 10),
             'con_date' => fake()->date(),
             'con_on_place' => fake()->address(),
             'con_on_time' => fake()->time(),
