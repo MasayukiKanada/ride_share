@@ -28,7 +28,7 @@ class DriverFactory extends Factory
             'birthday' => fake()->date(),
             'gender' => fake()->numberBetween(0, 2),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-            'driver_licence' => fake()->randomNumber(10),
+            'driver_licence' => fake()->randomNumber(9),
             'own_car' => fake()->words(),
             'own_capacity' => fake()->numberBetween(1, 7),
             'accident' => fake()->numberBetween(0, 5),
