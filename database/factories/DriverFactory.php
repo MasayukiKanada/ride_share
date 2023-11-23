@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Driver>
@@ -38,7 +37,6 @@ class DriverFactory extends Factory
             'bank_branch' => fake()->words(),
             'bank_account' => fake()->bankAccountNumber(),
             'account_name' => fake()->kananame(),
-            'remember_token' => Str::random(10),
         ];
     }
 }
