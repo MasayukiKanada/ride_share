@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contract;
 
 class ContractController extends Controller
 {
     public function index() {
-        return view('user.contracts');
+        $values = Contract::all();
+        
+        //dd($values);
+
+        return view('user.contracts', compact('values'));
     }
 }
