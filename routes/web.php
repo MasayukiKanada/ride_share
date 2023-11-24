@@ -33,7 +33,8 @@ Route::get('/dashboard', function () {
  ->name('contracts') // ルート名
  ->controller(ContractController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
- Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
+    Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
+    Route::get('/contracts/create', 'create')->name('user.contracts.create');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
