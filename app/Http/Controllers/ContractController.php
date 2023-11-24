@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contract;
+use Illuminate\Support\Facades\DB;
 
 class ContractController extends Controller
 {
     public function index() {
-        $values = Contract::all();
+        $values = DB::table('contracts')->get();
         
         //dd($values);
 

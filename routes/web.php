@@ -1,10 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContractController;
-use App\Http\Controllers\DriverOfferController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\DriverController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +14,14 @@ use App\Http\Controllers\DriverController;
 |
 */
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('user/contracts', [ContractController::class, 'index']);
+
+require __DIR__.'/auth.php';
