@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 class ContractController extends Controller
 {
     public function index() {
-        $values = DB::table('contracts')->get();
-        
-        //dd($values);
+        $before_cons = DB::table('contracts')->whereDate('con_date','>','date("Y-m-d")' )->get();
+        $after_cons = DB::table('contracts')->whereDate('con_date','<','date("Y-m-d")' )->get();
+        //dd($before_cons);
 
-        return view('user.contracts', compact('values'));
+        return view('user.contracts', compact('before_cons', 'after_cons'));
     }
 }
