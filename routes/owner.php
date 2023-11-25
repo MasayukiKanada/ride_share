@@ -23,12 +23,12 @@ use App\Http\Controllers\ContractController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('owner.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('owner.dashboard');
+})->middleware(['auth:owners'])->name('dashboard');
 
 
 /*
@@ -37,14 +37,14 @@ Route::get('/dashboard', function () {
 |-----------------------
 |
 */
-Route::prefix('user') // 頭に contacts をつける
- //->middleware(['auth:users']) // 認証
- ->name('contracts') // ルート名
- ->controller(ContractController::class) // コントローラ指定(laravel9から)
- ->group(function(){ // グループ化
-    Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
-    Route::get('/contracts/create', 'create')->name('user.contracts.create');
-});
+// Route::prefix('owner') // 頭に contacts をつける
+//  ->middleware(['auth:owners']) // 認証
+//  ->name('contracts') // ルート名
+//  ->controller(ContractController::class) // コントローラ指定(laravel9から)
+//  ->group(function(){ // グループ化
+//     Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
+//     Route::get('/contracts/create', 'create')->name('user.contracts.create');
+// });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
 
@@ -75,7 +75,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.update');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:owners')->group(function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
                 ->name('verification.notice');
 

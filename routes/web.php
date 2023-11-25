@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
 
 
 /*
@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 |-----------------------
 |
 */Route::prefix('user') // 頭に contacts をつける
- //->middleware(['auth:users']) // 認証
+ ->middleware(['auth:users']) // 認証
  ->name('contracts') // ルート名
  ->controller(ContractController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
