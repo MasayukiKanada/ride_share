@@ -19,7 +19,7 @@ class Driver extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'mail',
+        'email',
         'tel',
         'zip',
         'pref',
