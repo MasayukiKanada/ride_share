@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 |-----------------------
 |
 */Route::prefix('user') // 頭に contacts をつける
- //->middleware(['auth']) // 認証
+ //->middleware(['auth:users']) // 認証
  ->name('contracts') // ルート名
  ->controller(ContractController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
