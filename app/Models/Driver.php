@@ -19,8 +19,25 @@ class Driver extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'mail',
+        'tel',
+        'zip',
+        'pref',
+        'town',
+        'address',
+        'birthday',
+        'gender',
         'password',
+        'driver_licence',
+        'own_car',
+        'own_capacity',
+        'accident',
+        'rank',
+        'basic_fee',
+        'bank_name',
+        'bank_branch',
+        'bank_account',
+        'account_name',
     ];
 
     /**
