@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Driver>
@@ -28,7 +29,7 @@ class DriverFactory extends Factory
             'address' => fake()->streetAddress(),
             'birthday' => fake()->date(),
             'gender' => fake()->numberBetween(0, 2),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'password' => Hash::make('password123'),
             'driver_licence' => fake()->numberBetween(11111111111, 999999999999),
             'own_car' => fake()->word(),
             'own_capacity' => fake()->numberBetween(1, 7),
