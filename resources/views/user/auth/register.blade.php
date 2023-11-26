@@ -26,6 +26,60 @@
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- Tel -->
+            <div class="mt-4">
+                <x-input-label for="zip" :value="__('Tel')" />
+
+                <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required />
+            </div>
+
+            <!-- Zip -->
+            <div class="mt-4">
+                <x-input-label for="zip" :value="__('Zip')" />
+
+                <x-text-input id="zip" class="block mt-1 w-full" type="text" name="zip" :value="old('zip')" required />
+            </div>
+
+            <!-- Pref -->
+            <div class="mt-4">
+                <x-input-label for="pref" :value="__('Pref')" />
+
+                <x-text-input id="pref" class="block mt-1 w-full" type="text" name="pref" :value="old('pref')" required />
+            </div>
+
+            <!-- Town -->
+            <div class="mt-4">
+                <x-input-label for="town" :value="__('Town')" />
+
+                <x-text-input id="town" class="block mt-1 w-full" type="text" name="town" :value="old('town')" required />
+            </div>
+
+            <!-- Address -->
+            <div class="mt-4">
+                <x-input-label for="address" :value="__('Address')" />
+
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+            </div>
+
+            <!-- Birthday -->
+            <div class="mt-4">
+                <x-input-label for="birthday" :value="__('Birthday')" />
+
+                <x-text-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required />
+            </div>
+
+            <!-- Gender -->
+            <div class="mt-4">
+                <x-input-label for="gender" :value="__('Gender')" />
+
+                <x-select-box name="gender">
+                    <option value="old('gender')" selected>性別を選択してください</option>
+                    <option value="0">男性</option>
+                    <option value="1">女性</option>
+                    <option value="2">その他</option>
+                </x-select-box>
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-input-label for="password" :value="__('Password')" />
