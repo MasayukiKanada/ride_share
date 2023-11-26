@@ -4,13 +4,9 @@ use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+|-----------------------
+| 利用者側
+|-----------------------
 |
 */
 
@@ -23,12 +19,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth:users'])->name('dashboard');
 
 
-/*
-|-----------------------
-| 利用者側
-|-----------------------
-|
-*/Route::prefix('user') // 頭に contacts をつける
+Route::prefix('user') // 頭に contacts をつける
  ->middleware(['auth:users']) // 認証
  ->name('contracts') // ルート名
  ->controller(ContractController::class) // コントローラ指定(laravel9から)
@@ -38,22 +29,6 @@ Route::get('/dashboard', function () {
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
-
-
-/*
-|-----------------------
-| 運転者側
-|-----------------------
-|
-*/
-
-
-/*
-|-----------------------
-| 管理者側
-|-----------------------
-|
-*/
 
 
 require __DIR__.'/auth.php';
