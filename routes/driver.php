@@ -37,14 +37,14 @@ Route::get('/dashboard', function () {
 |-----------------------
 |
 */
-Route::prefix('driver') // 頭に contacts をつける
- //->middleware(['auth:users']) // 認証
- ->name('contracts') // ルート名
- ->controller(ContractController::class) // コントローラ指定(laravel9から)
- ->group(function(){ // グループ化
-    Route::get('/contracts', 'index')->name('driver.contracts'); // 名前つきルート
-    Route::get('/contracts/create', 'create')->name('driver.contracts.create');
-});
+// Route::prefix('driver') // 頭に contacts をつける
+//  //->middleware(['auth:users']) // 認証
+//  ->name('contracts') // ルート名
+//  ->controller(ContractController::class) // コントローラ指定(laravel9から)
+//  ->group(function(){ // グループ化
+//     Route::get('/contracts', 'index')->name('driver.contracts'); // 名前つきルート
+//     Route::get('/contracts/create', 'create')->name('driver.contracts.create');
+// });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
 
