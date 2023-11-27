@@ -25,14 +25,17 @@
                         <div class="mb-6">
                             <x-input-label for="req_date" :value="__('希望利用日')" />
 
-                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', date('Y-m-d'))" required autofocus />
+                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $defaultDate)" required autofocus />
                         </div>
 
                         <!-- 乗車場所 -->
                         <div class="mb-6">
                             <x-input-label for="req_on_place" :value="__('希望乗車場所')" />
 
-                            <x-text-input id="req_on_place" class="block mt-1 w-full" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
+                            <div class="flex">
+                                <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                    <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
+                            </div>
                         </div>
 
                         <!-- 乗車時間 -->
@@ -46,7 +49,10 @@
                         <div class="mb-6">
                             <x-input-label for="req_off_place" :value="__('希望下車場所')" />
 
-                            <x-text-input id="req_off_place" class="block mt-1 w-full" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
+                            <div class="flex">
+                                <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                    <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
+                            </div>
                         </div>
 
                         <!-- 下車時間 -->
@@ -64,7 +70,7 @@
                         </div>
 
                         <div class="mt-6 flex items-center justify-end gap-x-6">
-                            <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">候補を選択する</button>
+                            <button type="submit" class="block w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">候補を選択する</button>
                           </div>
                     </form>
                 </div>

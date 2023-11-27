@@ -21,6 +21,7 @@ class ContractController extends Controller
 
     public function create(){
         $user = Auth::user();
-        return view('user.contracts.create', compact('user'));
+        $defaultDate = date("Y-m-d", strtotime("+7 day"));
+        return view('user.contracts.create', compact('user', 'defaultDate'));
     }
 }
