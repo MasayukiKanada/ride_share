@@ -27,7 +27,7 @@ class ContractController extends Controller
 
     public function select(Request $request){
         $req_date = $request->req_date;
-        $offers = DB::table('driver_offers')->where('offer_date', $req_date);
+        $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
         return view('user.contracts.select', compact('offers', 'req_date'));
     }
 }

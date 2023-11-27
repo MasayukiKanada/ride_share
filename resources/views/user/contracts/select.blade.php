@@ -11,8 +11,7 @@
 
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
-                    <p>利用希望日:{{ $req_date }}</p>
-                    {{-- <table>
+                    <table>
                         <tr>
                             <th>利用日</th>
                             <th>目的地</th>
@@ -25,7 +24,7 @@
                                         <td><a href="">詳細</a></td>
                                     </tr>
                         @endforeach
-                    </table> --}}
+                    </table>
                 </div>
             </div>
         </div>
