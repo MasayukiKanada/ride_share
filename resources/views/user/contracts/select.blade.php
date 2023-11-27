@@ -15,13 +15,13 @@
                         <tr>
                             <th>利用日</th>
                             <th>目的地</th>
-                            <th>詳細</th>
+                            <th>選択</th>
                         </tr>
                         @foreach($offers as $offer)
                                     <tr>
                                         <td>{{ $offer->offer_date }}</td>
                                         <td>{{ $offer->offer_off_place }}</td>
-                                        <td><a href="">詳細</a></td>
+                                        <td><a href="">選択する</a></td>
                                     </tr>
                         @endforeach
                     </table>
