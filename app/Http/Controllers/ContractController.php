@@ -20,6 +20,7 @@ class ContractController extends Controller
     }
 
     public function create(){
-        return view('user.contracts.create');
+        $user = Auth::user();
+        return view('user.contracts.create', compact('user'));
     }
 }

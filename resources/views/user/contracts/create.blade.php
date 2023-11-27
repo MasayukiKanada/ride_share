@@ -22,42 +22,42 @@
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
 
                         <!-- 利用日 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_date" :value="__('希望利用日')" />
 
-                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date')" required autofocus />
+                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', date('Y-m-d'))" required autofocus />
                         </div>
 
                         <!-- 乗車場所 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_on_place" :value="__('希望乗車場所')" />
 
-                            <x-text-input id="req_on_place" class="block mt-1 w-full" type="text" name="req_on_place" :value="old('req_on_place')" required autofocus />
+                            <x-text-input id="req_on_place" class="block mt-1 w-full" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
                         </div>
 
                         <!-- 乗車時間 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_on_time" :value="__('希望乗車時間')" />
 
                             <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time')" required autofocus />
                         </div>
 
                         <!-- 下車場所 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_off_place" :value="__('希望下車場所')" />
 
-                            <x-text-input id="req_off_place" class="block mt-1 w-full" type="text" name="req_off_place" :value="old('req_off_place')" required autofocus />
+                            <x-text-input id="req_off_place" class="block mt-1 w-full" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
                         </div>
 
                         <!-- 下車時間 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_off_time" :value="__('下車時間目安')" />
 
                             <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time')" required autofocus />
                         </div>
 
                         <!-- 利用人数 -->
-                        <div>
+                        <div class="mb-6">
                             <x-input-label for="req_number" :value="__('希望利用人数')" />
 
                             <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number')" required autofocus />
