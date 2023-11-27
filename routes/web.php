@@ -26,6 +26,7 @@ Route::prefix('user') // 頭に contacts をつける
  ->group(function(){ // グループ化
     Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
     Route::get('/contracts/create', 'create')->name('user.contracts.create');
+    Route::post('/contracts/select', 'select')->name('user.contracts.select');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');

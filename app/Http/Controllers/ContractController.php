@@ -24,4 +24,10 @@ class ContractController extends Controller
         $defaultDate = date("Y-m-d", strtotime("+7 day"));
         return view('user.contracts.create', compact('user', 'defaultDate'));
     }
+
+    public function select(Request $request){
+        $req_date = $request->req_date;
+        $offers = DB::table('driver_offers')->where('offer_date', $req_date);
+        return view('user.contracts.select', compact('offers', 'req_date'));
+    }
 }
