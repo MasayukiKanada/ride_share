@@ -36,7 +36,14 @@ class ContractController extends Controller
         return view('user.contracts.select', compact('req_on_place','req_on_time','req_off_place','req_off_time','req_number', 'offers', 'req_date'));
     }
     public function confirm(Request $request){
-
-        return view('user.contracts.confirm', compact('request'));
+        $driver_id = $request->driver_id;
+        $con_date = $request->con_date;
+        $con_on_place = $request->con_on_place;
+        $con_on_time = $request->con_on_time;
+        $con_off_place = $request->con_off_place;
+        $con_off_time = $request->con_off_time;
+        $con_fee = $request->con_fee;
+        $con_number = $request->con_number;
+        return view('user.contracts.confirm', compact('driver_id', 'con_date', 'con_on_place', 'con_on_time', 'con_off_place', 'con_off_time', 'con_fee', 'con_number'));
     }
 }
