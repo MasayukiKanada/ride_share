@@ -43,7 +43,7 @@
 
 
                     <!-----利用済履歴------>
-                    <div class="bg-gray-50 px-3 py-6">
+                    <div class="bg-gray-100 px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">利用済履歴</h3>
                         @if ($after_cons->isEmpty())
                             <p>利用済の履歴はありません。</p>

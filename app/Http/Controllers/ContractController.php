@@ -26,9 +26,17 @@ class ContractController extends Controller
     }
 
     public function select(Request $request){
+        $req_on_place = $request->req_on_place;
+        $req_on_time = $request->req_on_time;
         $req_off_place = $request->req_off_place;
+        $req_off_time = $request->req_off_time;
+        $req_number = $request->req_number;
         $req_date = $request->req_date;
         $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
-        return view('user.contracts.select', compact('req_off_place', 'offers', 'req_date'));
+        return view('user.contracts.select', compact('req_on_place','req_on_time','req_off_place','req_off_time','req_number', 'offers', 'req_date'));
+    }
+    public function confirm(Request $request){
+
+        return view('user.contracts.confirm', compact('request'));
     }
 }

@@ -27,6 +27,7 @@ Route::prefix('user') // 頭に contacts をつける
     Route::get('/contracts', 'index')->name('user.contracts'); // 名前つきルート
     Route::get('/contracts/create', 'create')->name('user.contracts.create');
     Route::post('/contracts/select', 'select')->name('user.contracts.select');
+    Route::post('/contracts/confirm', 'confirm')->name('user.contracts.confirm');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
