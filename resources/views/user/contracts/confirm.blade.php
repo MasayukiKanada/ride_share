@@ -18,53 +18,58 @@
                     <form method="POST" action="{{ route('user.contractsuser.contracts.select') }}">
                         @csrf
 
-                        <!-- ID -->
+                        <!-- 送信用隠しデータ -->
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
+                        <input type="hidden" id="driver_id" name="driver_id" value="{{  $inputs['driver_id'] }}">
+                        <input type="hidden" id="con_date" name="con_date" value="{{  $inputs['con_date'] }}">
+                        <input type="hidden" id="con_on_place" name="con_on_place" value="{{  $inputs['con_on_place'] }}">
+                        <input type="hidden" id="con_on_time" name="con_on_time" value="{{  $inputs['con_on_time'] }}">
+                        <input type="hidden" id="con_off_place" name="con_off_place" value="{{  $inputs['con_off_place'] }}">
+                        <input type="hidden" id="con_off_time" name="con_off_time" value="{{  $inputs['con_off_time'] }}">
+                        <input type="hidden" id="con_fee" name="con_fee" value="{{  $inputs['con_fee'] }}">
+                        <input type="hidden" id="con_number" name="con_number" value="{{  $inputs['con_number'] }}">
 
-                        <!-- 利用日 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_date" :value="__('希望利用日')" />
-
-                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="con_date" value="{{ $con_date }}" required autofocus />
-                        </div>
-
-                        <!-- 乗車場所 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_on_place" :value="__('希望乗車場所')" />
-
-                            <div class="flex">
-                                <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" value="{{ $con_on_place }}" required autofocus />
+                        <!-- 表 -->
+                        <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+                            <div class="border-t">
+                                <dl>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用者名</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ Auth::user()->name }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用日</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_date'] }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">乗車場所</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_on_place'] }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">乗車時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_on_time'] }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">下車場所</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_off_place'] }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">下車時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_off_time'] }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用人数</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_number'] }}名</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用料金</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_fee'] }}円</dd>
+                                    </div>
+                                </dl>
                             </div>
                         </div>
-
-                        <!-- 乗車時間 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_on_time" :value="__('希望乗車時間')" />
-
-                            <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" value="{{ $con_on_time }}" required autofocus />
-                        </div>
-
-                        <!-- 下車場所 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_off_place" :value="__('希望下車場所')" />
-
-                            <div class="flex">
-                                <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" value="{{ $con_off_place }}" required autofocus />
-                            </div>
-                        </div>
-
-                        <!-- 下車時間 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_off_time" :value="__('下車時間目安')" />
-
-                            <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" value="{{ $con_off_time }})" required autofocus />
-                        </div>
-
-                        <!-- 利用人数 -->
-                        <div class="mb-6">
-                            <x-input-label for="req_number" :value="__('希望利用人数')" />
-
-                            <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" value="{{ $con_number }}" required autofocus />
+                        <div class="mt-4">
+                            <x-primary-button name="back">修正する</x-primary-button>
                         </div>
 
                         <div class="mt-6 flex items-center justify-end gap-x-6">
