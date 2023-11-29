@@ -28,14 +28,10 @@ class ContractController extends Controller
     }
 
     public function select(Request $request){
-        $req_on_place = $request->req_on_place;
-        $req_on_time = $request->req_on_time;
-        $req_off_place = $request->req_off_place;
-        $req_off_time = $request->req_off_time;
-        $req_number = $request->req_number;
+        $inputs = $request->all();
         $req_date = $request->req_date;
         $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
-        return view('user.contracts.select', compact('req_on_place','req_on_time','req_off_place','req_off_time','req_number', 'offers', 'req_date'));
+        return view('user.contracts.select', compact('inputs', 'offers'));
     }
 
     public function confirm(Request $request){
@@ -44,22 +40,24 @@ class ContractController extends Controller
     }
 
     public function store(Request $request){
-        $user = Auth::user();
-        $defaultDate = date("Y-m-d", strtotime("+7 day"));
-        return view('user.contracts.create', compact('user', 'defaultDate'));
+        if($request->has('back')) {
+            $inputs = $request->all();
+            $req_date = $request->req_date;
+            $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
+            return view('user.contracts.select', compact('inputs', 'offers'));
+        }
 
         $contract = new Contract;
         $contract->user_id = Auth::id();
         $contract->driver_id = $request->driver_id;
-        $contract->con_date = $request->con_date;
-        $contract->con_on_place = $request->con_on_place;
-        $contract->con_on_time = $request->con_on_time;
-        $contract->con_off_place = $request->con_off_place;
-        $contract->con_off_time = $request->con_off_time;
-        $contract->con_fee = $request->con_fee;
-        $contract->con_number = $request->con_number;
+        $contract->con_date = $request->req_date;
+        $contract->con_on_place = $request->req_on_place;
+        $contract->con_on_time = $request->req_on_time;
+        $contract->con_off_place = $request->req_off_place;
+        $contract->con_off_time = $request->req_off_time;
+        $contract->con_fee = $request->offer_fee;
+        $contract->con_number = $request->req_number;
         $contract->save();
-
         return redirect('user/contracts');
     }
 }

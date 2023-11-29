@@ -29,16 +29,16 @@
                             @foreach($offers as $offer)
                                 <tr class="border-b border-gray-400">
                                     <input type="hidden" id="driver_id" name="driver_id" value="{{ $offer->driver_id }}">
-                                    <input type="hidden" id="con_date" name="con_date" value="{{ $offer->offer_date }}">
-                                    <input type="hidden" id="con_on_place" name="con_on_place" value="{{ $req_on_place }}">
-                                    <input type="hidden" id="con_on_time" name="con_on_time" value="{{ $req_on_time }}">
-                                    <input type="hidden" id="con_off_place" name="con_off_place" value="{{ $req_off_place }}">
-                                    <input type="hidden" id="con_off_time" name="con_off_time" value="{{ $req_off_time }}">
-                                    <input type="hidden" id="con_number" name="con_number" value="{{ $req_number }}">
+                                    <input type="hidden" id="req_date" name="req_date" value="{{ $offer->offer_date }}">
+                                    <input type="hidden" id="req_on_place" name="req_on_place" value="{{ $inputs['req_on_place'] }}">
+                                    <input type="hidden" id="req_on_time" name="req_on_time" value="{{ $inputs['req_on_time'] }}">
+                                    <input type="hidden" id="req_off_place" name="req_off_place" value="{{ $inputs['req_off_place'] }}">
+                                    <input type="hidden" id="req_off_time" name="req_off_time" value="{{ $inputs['req_off_time'] }}">
+                                    <input type="hidden" id="req_number" name="req_number" value="{{ $inputs['req_number'] }}">
                                     <!---ランク代入---->
-                                    <input type="hidden" id="con_fee" name="con_fee" value="{{ $offer->offer_fee }}">
+                                    <input type="hidden" id="offer_fee" name="offer_fee" value="{{ $offer->offer_fee }}">
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_date }}</td>
-                                    <td class="border-r border-gray-400 px-2 py-2">{{ $req_off_place }}</td>
+                                    <td class="border-r border-gray-400 px-2 py-2">{{ $inputs['req_off_place'] }}</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_car }}</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_capacity }}名</td>
                                     <td class="border-r border-gray-400 px-2 py-2">ランク表示</td>

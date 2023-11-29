@@ -21,13 +21,13 @@
                         <!-- 送信用隠しデータ -->
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
                         <input type="hidden" id="driver_id" name="driver_id" value="{{  $inputs['driver_id'] }}">
-                        <input type="hidden" id="con_date" name="con_date" value="{{  $inputs['con_date'] }}">
-                        <input type="hidden" id="con_on_place" name="con_on_place" value="{{  $inputs['con_on_place'] }}">
-                        <input type="hidden" id="con_on_time" name="con_on_time" value="{{  $inputs['con_on_time'] }}">
-                        <input type="hidden" id="con_off_place" name="con_off_place" value="{{  $inputs['con_off_place'] }}">
-                        <input type="hidden" id="con_off_time" name="con_off_time" value="{{  $inputs['con_off_time'] }}">
-                        <input type="hidden" id="con_fee" name="con_fee" value="{{  $inputs['con_fee'] }}">
-                        <input type="hidden" id="con_number" name="con_number" value="{{  $inputs['con_number'] }}">
+                        <input type="hidden" id="req_date" name="req_date" value="{{  $inputs['req_date'] }}">
+                        <input type="hidden" id="req_on_place" name="req_on_place" value="{{  $inputs['req_on_place'] }}">
+                        <input type="hidden" id="req_on_time" name="req_on_time" value="{{  $inputs['req_on_time'] }}">
+                        <input type="hidden" id="req_off_place" name="req_off_place" value="{{  $inputs['req_off_place'] }}">
+                        <input type="hidden" id="req_off_time" name="req_off_time" value="{{  $inputs['req_off_time'] }}">
+                        <input type="hidden" id="offer_fee" name="offer_fee" value="{{  $inputs['offer_fee'] }}">
+                        <input type="hidden" id="req_number" name="req_number" value="{{  $inputs['req_number'] }}">
 
                         <!-- 表 -->
                         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
@@ -39,31 +39,31 @@
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用日</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_date'] }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_date'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">乗車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_on_place'] }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_place'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">乗車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_on_time'] }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_time'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">下車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_off_place'] }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_off_place'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">下車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_off_time'] }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_off_time'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用人数</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_number'] }}名</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_number'] }}名</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用料金</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['con_fee'] }}円</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_fee'] }}円</dd>
                                     </div>
                                 </dl>
                             </div>
