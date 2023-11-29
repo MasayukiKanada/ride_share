@@ -14,8 +14,9 @@ class ContractController extends Controller
 {
     public function index() {
         $userID = Auth::id();
-        $before_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','>','date("Y-m-d")' )->get();
-        $after_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','<','date("Y-m-d")' )->get();
+        $today = date('Y-m-d');
+        $before_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','>', $today )->get();
+        $after_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','<', $today )->get();
         //dd($before_cons);
 
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));

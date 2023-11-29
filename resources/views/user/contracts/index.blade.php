@@ -20,11 +20,6 @@
                             <p>利用前の履歴はありません。</p>
                         @else
                             <table>
-                                <tr>
-                                    <th>利用日</th>
-                                    <th>目的地</th>
-                                    <th>詳細</th>
-                                </tr>
                                 <tr class="border-b border-gray-400">
                                     <th class="border-r border-gray-400 py-2">利用日</th>
                                     <th class="border-r border-gray-400 py-2">目的地</th>
@@ -48,20 +43,19 @@
                         @if ($after_cons->isEmpty())
                             <p>利用済の履歴はありません。</p>
                         @else
-                            <table>
-                                <tr>
-                                    <th>利用日</th>
-                                    <th>目的地</th>
-                                    <th>詳細</th>
-                                </tr>
-                                @foreach($after_cons as $after_con)
-                                            <tr>
-                                                <td>{{ $after_con->con_date }}</td>
-                                                <td>{{ $after_con->con_off_place }}</td>
-                                                <td><a href="">詳細</a></td>
-                                            </tr>
-                                @endforeach
-                            </table>
+                        <table>
+                            <tr class="border-b border-gray-400">
+                                <th class="border-r border-gray-400 py-2">利用日</th>
+                                <th class="border-r border-gray-400 py-2">目的地</th>
+                                <th>詳細</th>
+                            </tr>
+                            @foreach($after_cons as $after_con)
+                                        <tr class="border-b border-gray-400">
+                                            <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_date }}</td>
+                                            <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_off_place }}</td>
+                                            <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="">詳細を見る</a></td>
+                                        </tr>
+                            @endforeach
                         @endif
                     </div>
                 </div>
