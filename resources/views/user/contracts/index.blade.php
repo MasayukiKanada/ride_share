@@ -14,7 +14,7 @@
                     <!------利用前履歴と利用済履歴で表示を変える-------->
 
                     <!-----利用前履歴------>
-                    <div class="bg-red-100 px-3 py-6">
+                    <div class="px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">利用前履歴</h3>
                         @if ($before_cons->isEmpty())
                             <p>利用前の履歴はありません。</p>
@@ -43,7 +43,7 @@
 
 
                     <!-----利用済履歴------>
-                    <div class="bg-gray-100 px-3 py-6">
+                    <div class="bg-gray-100 shadow sm:rounded-l px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">利用済履歴</h3>
                         @if ($after_cons->isEmpty())
                             <p>利用済の履歴はありません。</p>

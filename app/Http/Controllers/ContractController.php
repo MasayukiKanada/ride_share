@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Contract;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+
 
 class ContractController extends Controller
 {
@@ -35,8 +37,29 @@ class ContractController extends Controller
         $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
         return view('user.contracts.select', compact('req_on_place','req_on_time','req_off_place','req_off_time','req_number', 'offers', 'req_date'));
     }
+
     public function confirm(Request $request){
         $inputs = $request->all();
         return view('user.contracts.confirm', compact('inputs'));
+    }
+
+    public function store(Request $request){
+        $user = Auth::user();
+        $defaultDate = date("Y-m-d", strtotime("+7 day"));
+        return view('user.contracts.create', compact('user', 'defaultDate'));
+
+        $contract = new Contract;
+        $contract->user_id = Auth::id();
+        $contract->driver_id = $request->driver_id;
+        $contract->con_date = $request->con_date;
+        $contract->con_on_place = $request->con_on_place;
+        $contract->con_on_time = $request->con_on_time;
+        $contract->con_off_place = $request->con_off_place;
+        $contract->con_off_time = $request->con_off_time;
+        $contract->con_fee = $request->con_fee;
+        $contract->con_number = $request->con_number;
+        $contract->save();
+
+        return redirect('user/contracts');
     }
 }
