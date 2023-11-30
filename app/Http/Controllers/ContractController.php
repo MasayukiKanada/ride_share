@@ -15,8 +15,10 @@ class ContractController extends Controller
     public function index() {
         $userID = Auth::id();
         $today = date('Y-m-d');
+        //本日よりも前の予約履歴を検索
         $before_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','>', $today )->get();
-        $after_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','<', $today )->get();
+        //本日以後の予約履歴を検索
+        $after_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','<=', $today )->get();
         //dd($before_cons);
 
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));
@@ -24,6 +26,7 @@ class ContractController extends Controller
 
     public function create(Request $request){
         $user = Auth::user();
+        //新規予約の日付初期値を7日後に設定
         $defaultDate = date("Y-m-d", strtotime("+7 day"));
         return view('user.contracts.create', compact('user','defaultDate'));
     }
@@ -31,14 +34,20 @@ class ContractController extends Controller
     public function select(Request $request){
         $inputs = $request->all();
         $req_date = $request->req_date;
-        $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
+        $req_on_time = $request->req_on_time;
+        $req_off_time = $request->req_off_time;
+        $req_number = $request->req_number;
+        //（利用者側の）利用希望日・時間・人数に合う（ドライバー側の）提供希望日・時間・定員を検索する
+        $offers = DB::table('driver_offers')->where('offer_date', $req_date)->where('offer_on_time','<', $req_on_time)->where('offer_off_time', '>', $req_off_time)->where('offer_capacity', '>', $req_number)->get();
         return view('user.contracts.select', compact('inputs', 'offers'));
     }
 
     public function confirm(Request $request){
+        //新規予約画面に戻る
         if($request->has('back')) {
             $user = Auth::user();
             $inputs = $request->all();
+            //新規予約の日付初期値を7日後に設定
             $defaultDate = date("Y-m-d", strtotime("+7 day"));
             return view('user.contracts.create', compact('user', 'inputs', 'defaultDate'));
         }
@@ -48,10 +57,15 @@ class ContractController extends Controller
     }
 
     public function store(Request $request){
+        //候補一覧画面に戻る
         if($request->has('back')) {
             $inputs = $request->all();
             $req_date = $request->req_date;
-            $offers = DB::table('driver_offers')->where('offer_date', $req_date)->get();
+            $req_on_time = $request->req_on_time;
+            $req_off_time = $request->req_off_time;
+            $req_number = $request->req_number;
+            //（利用者側の）利用希望日・時間・人数に合う（ドライバー側の）提供希望日・時間・定員を検索する
+            $offers = DB::table('driver_offers')->where('offer_date', $req_date)->where('offer_on_time','<', $req_on_time)->where('offer_off_time', '>', $req_off_time)->where('offer_capacity', '>', $req_number)->get();
             return view('user.contracts.select', compact('inputs', 'offers'));
         }
 
