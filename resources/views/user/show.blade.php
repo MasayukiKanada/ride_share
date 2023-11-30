@@ -28,7 +28,10 @@
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">郵便番号</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $user->zip }}</dd>
+                                        @php
+                                            $zipcode = str_split($user->zip, 3);
+                                        @endphp
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $zipcode[0].'-'.$zipcode[1].$zipcode[2] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">住所</dt>
@@ -36,15 +39,23 @@
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">誕生日</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $user->birthday }}</dd>
+                                        @php
+                                            $birthday = date('Y年m月d日' ,strtotime($user->birthday));
+                                        @endphp
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $birthday }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">性別</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $user->gender }}</dd>
+                                        @php
+                                            if ($user->gender==0){$gender = '男性';}
+                                            elseif($user->gender==1){$gender = '女性';}
+                                            else{$gender = 'その他';}
+                                        @endphp
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $gender }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">パスワード</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $user->password }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">****************</dd>
                                     </div>
                                 </dl>
                                 @endforeach
