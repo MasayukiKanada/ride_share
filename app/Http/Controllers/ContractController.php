@@ -22,10 +22,10 @@ class ContractController extends Controller
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));
     }
 
-    public function create(){
+    public function create(Request $request){
         $user = Auth::user();
         $defaultDate = date("Y-m-d", strtotime("+7 day"));
-        return view('user.contracts.create', compact('user', 'defaultDate'));
+        return view('user.contracts.create', compact('user','defaultDate'));
     }
 
     public function select(Request $request){
@@ -36,6 +36,13 @@ class ContractController extends Controller
     }
 
     public function confirm(Request $request){
+        if($request->has('back')) {
+            $user = Auth::user();
+            $inputs = $request->all();
+            $defaultDate = date("Y-m-d", strtotime("+7 day"));
+            return view('user.contracts.create', compact('user', 'inputs', 'defaultDate'));
+        }
+
         $inputs = $request->all();
         return view('user.contracts.confirm', compact('inputs'));
     }

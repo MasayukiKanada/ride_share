@@ -13,6 +13,18 @@
 
                     @if ($offers->isEmpty())
                         <p>申し訳ございません。<br>利用できる候補はありません。</p>
+                        <form method="POST" action="{{ route('user.contractsuser.contracts.confirm') }}">
+                            @csrf
+                            <div class="mt-4">
+                                <input type="hidden" id="req_date" name="req_date" value="{{ $inputs['req_date'] }}">
+                                <input type="hidden" id="req_on_place" name="req_on_place" value="{{ $inputs['req_on_place'] }}">
+                                    <input type="hidden" id="req_on_time" name="req_on_time" value="{{ $inputs['req_on_time'] }}">
+                                    <input type="hidden" id="req_off_place" name="req_off_place" value="{{ $inputs['req_off_place'] }}">
+                                    <input type="hidden" id="req_off_time" name="req_off_time" value="{{ $inputs['req_off_time'] }}">
+                                    <input type="hidden" id="req_number" name="req_number" value="{{ $inputs['req_number'] }}">
+                                <x-primary-button name="back">入力画面に戻る</x-primary-button>
+                            </div>
+                        </form>
                     @else
                     <form method="POST" action="{{ route('user.contractsuser.contracts.confirm') }}">
                         @csrf
@@ -47,6 +59,9 @@
                                 </tr>
                             @endforeach
                         </table>
+                        <div class="mt-4">
+                            <x-primary-button name="back">入力画面に戻る</x-primary-button>
+                        </div>
                     </form>
                     @endif
                 </div>

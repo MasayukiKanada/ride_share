@@ -24,8 +24,12 @@
                         <!-- 利用日 -->
                         <div class="mb-6">
                             <x-input-label for="req_date" :value="__('希望利用日')" />
+                            @if (isset($inputs['req_date']))
+                                <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $inputs['req_date'])" required autofocus />
+                            @else
+                                <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $defaultDate)" required autofocus />
+                            @endif
 
-                            <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $defaultDate)" required autofocus />
                         </div>
 
                         <!-- 乗車場所 -->
@@ -33,7 +37,11 @@
                             <x-input-label for="req_on_place" :value="__('希望乗車場所')" />
 
                             <div class="flex">
-                                <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                @if (isset($inputs['req_on_place']))
+                                    <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $inputs['req_on_place'])" required autofocus />
+                                @else
+                                    <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                @endif
                                     <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
                             </div>
                         </div>
@@ -42,7 +50,12 @@
                         <div class="mb-6">
                             <x-input-label for="req_on_time" :value="__('希望乗車時間')" />
 
-                            <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time')" required autofocus />
+                            @if (isset($inputs['req_on_time']))
+                                <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time', $inputs['req_on_time'])" required autofocus />
+                            @else
+                                <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time')" required autofocus />
+                            @endif
+
                         </div>
 
                         <!-- 下車場所 -->
@@ -50,7 +63,11 @@
                             <x-input-label for="req_off_place" :value="__('希望下車場所')" />
 
                             <div class="flex">
-                                <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                @if (isset($inputs['req_off_place']))
+                                    <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $inputs['req_off_place'])" required autofocus />
+                                @else
+                                    <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                @endif
                                     <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
                             </div>
                         </div>
@@ -59,14 +76,23 @@
                         <div class="mb-6">
                             <x-input-label for="req_off_time" :value="__('下車時間目安')" />
 
-                            <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time')" required autofocus />
+                            @if (isset($inputs['req_off_time']))
+                                <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time', $inputs['req_off_time'])" required autofocus />
+                            @else
+                                <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time')" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 利用人数 -->
                         <div class="mb-6">
                             <x-input-label for="req_number" :value="__('希望利用人数')" />
 
-                            <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number')" required autofocus />
+                            @if (isset($inputs['req_number']))
+                                <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number', $inputs['req_number'])" required autofocus />
+                            @else
+                                <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number')" required autofocus />
+                            @endif
+
                         </div>
 
                         <div class="mt-6 flex items-center justify-end gap-x-6">

@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <x-primary-button name="back">入力内容を修正する</x-primary-button>
+                            <x-primary-button name="back">候補一覧に戻る</x-primary-button>
                         </div>
 
                         <div class="mt-6 flex items-center justify-end gap-x-6">
