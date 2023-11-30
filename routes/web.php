@@ -31,6 +31,16 @@ Route::prefix('user') // 頭に contacts をつける
     Route::post('/contracts/complete', 'store')->name('user.contracts.store');
 });
 
+Route::prefix('user') // 頭に user をつける
+ ->middleware(['auth:users']) // 認証
+ ->name('user') // ルート名
+ ->controller(UserController::class) // コントローラ指定(laravel9から)
+ ->group(function(){ // グループ化
+    Route::get('/user', 'index')->name('user'); // 名前つきルート
+    Route::get('/user/edit', 'update')->name('user.edit');
+    Route::post('/user/complete', 'store')->name('user.store');
+});
+
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
 
 
