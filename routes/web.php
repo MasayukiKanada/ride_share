@@ -36,9 +36,10 @@ Route::prefix('user') // 頭に user をつける
  ->name('user') // ルート名
  ->controller(UserController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
-    Route::get('/user', 'index')->name('user'); // 名前つきルート
-    Route::get('/user/edit', 'update')->name('user.edit');
-    Route::post('/user/complete', 'store')->name('user.store');
+    Route::get('/user', 'show')->name('user'); // 名前つきルート
+    Route::get('/user/edit', 'edit')->name('user.edit');
+    Route::post('/user/complete', 'update')->name('user.update');
+    Route::post('/user/complete', 'destroy')->name('user.destroy');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
