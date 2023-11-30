@@ -59,6 +59,6 @@ class ContractController extends Controller
         $contract->con_fee = $request->offer_fee;
         $contract->con_number = $request->req_number;
         $contract->save();
-        return redirect('user/contracts');
+        return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 }
