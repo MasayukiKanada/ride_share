@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\DriverOfferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,13 +36,13 @@ Route::prefix('user') // 頭に contacts をつける
 
 Route::prefix('user') // 頭に user をつける
  ->middleware(['auth:users']) // 認証
- ->name('user') // ルート名
+ //->name('user') // ルート名
  ->controller(UserController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
-    Route::get('/user', 'show')->name('user'); // 名前つきルート
-    Route::get('/user/edit', 'edit')->name('user.edit');
-    Route::post('/user/complete', 'update')->name('user.update');
-    Route::post('/user/complete', 'destroy')->name('user.destroy');
+    Route::get('/show', 'show')->name('show'); // 名前つきルート
+    Route::get('/edit', 'edit')->name('edit');
+    Route::post('/complete', 'update')->name('update');
+    Route::post('/complete', 'destroy')->name('destroy');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
