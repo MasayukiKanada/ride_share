@@ -13,7 +13,7 @@
 
                     @if ($offers->isEmpty())
                         <p>申し訳ございません。<br>利用できる候補はありません。</p>
-                        <form method="POST" action="{{ route('user.contractsuser.contracts.confirm') }}">
+                        <form method="POST" action="{{ route('user.contracts.confirm') }}">
                             @csrf
                             <div class="mt-4">
                                 <input type="hidden" id="req_date" name="req_date" value="{{ $inputs['req_date'] }}">
@@ -26,7 +26,7 @@
                             </div>
                         </form>
                     @else
-                    <form method="POST" action="{{ route('user.contractsuser.contracts.confirm') }}">
+                    <form method="POST" action="{{ route('user.contracts.confirm') }}">
                         @csrf
                         <table class="w-full">
                             <tr class="border-b border-gray-400">

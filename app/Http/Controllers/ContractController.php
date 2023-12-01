@@ -16,12 +16,17 @@ class ContractController extends Controller
         $userID = Auth::id();
         $today = date('Y-m-d');
         //本日よりも前の予約履歴を検索
-        $before_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','>', $today )->get();
+        $before_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','>', $today )->get();
         //本日以後の予約履歴を検索
-        $after_cons = DB::table('contracts')->Where('id', $userID)->whereDate('con_date','<=', $today )->get();
+        $after_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','<=', $today )->get();
         //dd($before_cons);
 
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));
+    }
+
+    public function show($id){
+        $contract = DB::table('contracts')->find($id);
+        return view('user.contracts.show', compact('contract'));
     }
 
     public function create(Request $request){
