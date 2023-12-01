@@ -19,8 +19,6 @@ class ContractController extends Controller
         $before_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','>', $today )->get();
         //本日以後の予約履歴を検索
         $after_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','<=', $today )->get();
-        //dd($before_cons);
-
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));
     }
 
@@ -29,7 +27,7 @@ class ContractController extends Controller
         return view('user.contracts.show', compact('contract'));
     }
 
-    public function create(Request $request){
+    public function create(){
         $user = Auth::user();
         //新規予約の日付初期値を7日後に設定
         $defaultDate = date("Y-m-d", strtotime("+7 day"));

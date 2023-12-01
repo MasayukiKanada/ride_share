@@ -22,20 +22,20 @@ Route::get('/dashboard', function () {
 })->middleware(['auth:users'])->name('dashboard');
 
 
-Route::prefix('user') // 頭に contacts をつける
+Route::prefix('user') // 頭に userをつける
  ->middleware(['auth:users']) // 認証
  ->name('contracts.') // ルート名
  ->controller(ContractController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
     Route::get('/contracts', 'index')->name('index'); // 名前つきルート
-    Route::get('/contracts/{id}', 'show')->name('show'); // 名前つきルート
+    Route::get('/contracts/{id}', 'show')->name('show');
     Route::get('/contracts/create', 'create')->name('create');
     Route::post('/contracts/select', 'select')->name('select');
     Route::post('/contracts/confirm', 'confirm')->name('confirm');
     Route::post('/contracts/complete', 'store')->name('store');
 });
 
-Route::prefix('user') // 頭に user をつける
+Route::prefix('user') // 頭に userをつける
  ->middleware(['auth:users']) // 認証
  //->name('user') // ルート名
  ->controller(UserController::class) // コントローラ指定(laravel9から)
