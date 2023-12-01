@@ -15,4 +15,10 @@ class UserController extends Controller
         $users = DB::table('users')->where('id', $userID)->get();
         return view('user.show', compact('users'));
     }
+
+    public function edit() {
+        $userID = Auth::id();
+        $users = DB::table('users')->where('id', $userID)->get();
+        return view('user.edit', compact('users'));
+    }
 }

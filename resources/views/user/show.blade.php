@@ -61,6 +61,12 @@
                                 @endforeach
                             </div>
                         </div>
+                        <div class="mt-4">
+                            <a href="{{ route('user.dashboard') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-gray-700">戻る</a>
+                        </div>
+                        <div class="mt-6 flex items-center justify-start gap-x-6">
+                            <a href="{{ route('user.edit') }}" class="block w-1/3 md:w-1/4 text-center rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">編集する</a>
+                        </div>
                     </div>
 
                 </div>

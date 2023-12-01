@@ -28,7 +28,7 @@
 
             <!-- Tel -->
             <div class="mt-4">
-                <x-input-label for="zip" :value="__('電話番号')" />
+                <x-input-label for="tel" :value="__('電話番号')" />
 
                 <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required />
             </div>

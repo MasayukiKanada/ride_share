@@ -42,7 +42,7 @@ Route::prefix('user') // 頭に userをつける
  ->group(function(){ // グループ化
     Route::get('/show', 'show')->name('show'); // 名前つきルート
     Route::get('/edit', 'edit')->name('edit');
-    Route::post('/complete', 'update')->name('update');
+    Route::post('/update', 'update')->name('update');
     Route::post('/complete', 'destroy')->name('destroy');
 });
 
