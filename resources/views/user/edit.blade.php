@@ -70,7 +70,10 @@
                         <!-- パスワード -->
                         <div class="mb-6">
                             <x-input-label for="password" :value="__('パスワード')" />
-                            <x-text-input id="password" class="block mt-1 w-3/4" type="password" name="password" :value="old('password', $user->password)" required autofocus />
+                            <div class="flex items-center">
+                                <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="old('password', $user->password)" required autofocus />
+                                <i id="eye" class="fa-solid fa-eye w-6 h-6 cursor-pointer"></i>
+                            </div>
                         </div>
 
                         @endforeach
