@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -35,7 +36,21 @@ class UserController extends Controller
             return view('user.edit', compact('users', 'inputs'));
         }
 
-        $inputs = $request->all();
-        return view('user.confirm', compact('inputs'));
+        $user = User::findOrFail(Auth::id());
+        $userID = Auth::id();
+        $user->email = $request->email;
+        $user->tel = $request->tel;
+        $user->zip = $request->zip;
+        $user->pref = $request->pref;
+        $user->town = $request->town;
+        $user->address = $request->address;
+        $user->birthday = $request->birthday;
+        if ($request->gender =='男性'){$request['gender'] = 0;}
+        elseif($request->gender == '女性'){$request['gender'] = 1;}
+        else{$request['gender'] = 2;}
+        $user->gender = $request['gender'];
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return view('user.complete', compact('userID'))->with('status', 'user-stored');
     }
 }

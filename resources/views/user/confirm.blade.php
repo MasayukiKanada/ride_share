@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <h2>編集内容の確認</h2>
+            <h2>更新内容の確認</h2>
         </h2>
     </x-slot>
 
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="mt-6 flex items-center justify-start gap-x-6">
-                            <button type="submit" class="block w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">編集を確定する</button>
+                            <button type="submit" class="block w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">更新を確定する</button>
                           </div>
                     </form>
                 </div>
