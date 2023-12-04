@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    //パスワード表示／非表示（入力画面）
     let eye = document.getElementById("eye");
     eye.addEventListener('click', function () {
         if (this.previousElementSibling.getAttribute('type') == 'password') {
@@ -12,6 +13,5 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('fa-eye-slash');
         }
     })
-
 
 });

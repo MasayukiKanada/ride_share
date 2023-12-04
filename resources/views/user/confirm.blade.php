@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 flex items-center">
                                         <dt class="text-sm font-medium">パスワード</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">************</dd>
+                                        <dd id="unview_pass" class="mt-1 text-sm sm:col-span-2 sm:mt-0">************</dd>
                                     </div>
                                 </dl>
                             </div>

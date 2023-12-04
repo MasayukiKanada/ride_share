@@ -17,6 +17,7 @@
                         @csrf
 
                         @foreach($users as $user)
+
                         <!-- ID -->
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
 
@@ -29,43 +30,72 @@
                         <!-- メールアドレス -->
                         <div class="mb-6">
                             <x-input-label for="email" :value="__('メールアドレス')" />
-                            <x-text-input id="email" class="block mt-1 w-3/4" type="email" name="email" :value="old($user->email, $inputs['email'])" required autofocus />
+                            @if (isset($inputs['email']))
+                                <x-text-input id="email" class="block mt-1 w-3/4" type="email" name="email" :value="old($user->email, $inputs['email'])" required autofocus />
+                            @else
+                                <x-text-input id="email" class="block mt-1 w-3/4" type="email" name="email" :value="$user->email" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 電話番号 -->
                         <div class="mb-6">
                             <x-input-label for="tel" :value="__('電話番号')" />
-                            <x-text-input id="tel" class="block mt-1 w-3/4" type="tel" name="tel" :value="old($user->tel, $inputs['tel'])" required autofocus />
+                            @if (isset($inputs['tel']))
+                                <x-text-input id="tel" class="block mt-1 w-3/4" type="tel" name="tel" :value="old($user->tel, $inputs['tel'])" required autofocus />
+                            @else
+                                <x-text-input id="tel" class="block mt-1 w-3/4" type="tel" name="tel" :value="$user->tel" required autofocus />
+                            @endif
+
                         </div>
 
                         <!-- 郵便番号 -->
                         <div class="mb-6">
                             <x-input-label for="zip" :value="__('郵便番号（ハイフン(ー)を除いた数字7桁）')" />
-                            <x-text-input id="zip" class="block mt-1 w-3/4" type="text" name="zip" :value="old($user->zip, $inputs['zip'])" required autofocus />
+                            @if (isset($inputs['zip']))
+                                <x-text-input id="zip" class="block mt-1 w-3/4" type="text" name="zip" :value="old($user->zip, $inputs['zip'])" required autofocus />
+                            @else
+                                <x-text-input id="zip" class="block mt-1 w-3/4" type="text" name="zip" :value="$user->zip" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 都道府県 -->
                         <div class="mb-6">
                             <x-input-label for="pref" :value="__('都道府県')" />
-                            <x-text-input id="pref" class="block mt-1 w-3/4" type="text" name="pref" :value="old($user->pref, $inputs['pref'])" required autofocus />
+                            @if (isset($inputs['pref']))
+                                <x-text-input id="pref" class="block mt-1 w-3/4" type="text" name="pref" :value="old($user->pref, $inputs['pref'])" required autofocus />
+                            @else
+                                <x-text-input id="pref" class="block mt-1 w-3/4" type="text" name="pref" :value="$user->pref" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 市区町村 -->
                         <div class="mb-6">
                             <x-input-label for="town" :value="__('市区町村')" />
-                            <x-text-input id="town" class="block mt-1 w-3/4" type="text" name="town" :value="old($user->town, $inputs['town'])" required autofocus />
+                            @if (isset($inputs['town']))
+                                <x-text-input id="town" class="block mt-1 w-3/4" type="text" name="town" :value="old($user->town, $inputs['town'])" required autofocus />
+                            @else
+                                <x-text-input id="town" class="block mt-1 w-3/4" type="text" name="town" :value="$user->town" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 丁目、番地、号以下住所 -->
                         <div class="mb-6">
                             <x-input-label for="address" :value="__('丁目、番地、号以下住所')" />
-                            <x-text-input id="address" class="block mt-1 w-3/4" type="text" name="address" :value="old($user->address, $inputs['address'])" required autofocus />
+                            @if (isset($inputs['address']))
+                                <x-text-input id="address" class="block mt-1 w-3/4" type="text" name="address" :value="old($user->address, $inputs['address'])" required autofocus />
+                            @else
+                                <x-text-input id="address" class="block mt-1 w-3/4" type="text" name="address" :value="$user->address" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 誕生日 -->
                         <div class="mb-6">
                             <x-input-label for="birthday" :value="__('誕生日')" />
-                            <x-text-input id="birthday" class="block mt-1 w-3/4" type="date" name="birthday" :value="old($user->birthday, $inputs['birthday'])" required autofocus />
+                            @if (isset($inputs['birthday']))
+                                <x-text-input id="birthday" class="block mt-1 w-3/4" type="date" name="birthday" :value="old($user->birthday, $inputs['birthday'])" required autofocus />
+                            @else
+                                <x-text-input id="birthday" class="block mt-1 w-3/4" type="date" name="birthday" :value="$user->birthday" required autofocus />
+                            @endif
                         </div>
 
                         <!-- 性別 -->
@@ -76,14 +106,22 @@
                                 elseif($user->gender==1){$gender = '女性';}
                                 else{$gender = 'その他';}
                             @endphp
-                            <x-text-input id="gender" class="block mt-1 w-3/4" type="text" name="gender" :value="old($gender, $inputs['gender'])" required autofocus />
+                            @if (isset($inputs['gender']))
+                                <x-text-input id="gender" class="block mt-1 w-3/4" type="text" name="gender" :value="old($gender, $inputs['gender'])" required autofocus />
+                            @else
+                                <x-text-input id="gender" class="block mt-1 w-3/4" type="text" name="gender" :value="$gender" required autofocus />
+                            @endif
                         </div>
 
                         <!-- パスワード -->
                         <div class="mb-6">
                             <x-input-label for="password" :value="__('パスワード')" />
                             <div class="flex items-center">
-                                <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="old($user->password, $inputs['password'])" required autofocus />
+                                @if (isset($inputs['gender']))
+                                    <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="old($user->password, $inputs['password'])" required autofocus />
+                                @else
+                                    <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="$user->password" required autofocus />
+                                @endif
                                 <i id="eye" class="fa-solid fa-eye w-6 h-6 cursor-pointer"></i>
                             </div>
                         </div>
