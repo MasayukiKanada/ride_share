@@ -49,7 +49,6 @@ class UserController extends Controller
         elseif($request->gender == '女性'){$request['gender'] = 1;}
         else{$request['gender'] = 2;}
         $user->gender = $request['gender'];
-        $user->password = Hash::make($request->password);
         $user->save();
         return view('user.complete', compact('userID'))->with('status', 'user-stored');
     }

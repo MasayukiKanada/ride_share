@@ -117,12 +117,7 @@
                         <div class="mb-6">
                             <x-input-label for="password" :value="__('パスワード')" />
                             <div class="flex items-center">
-                                @if (isset($inputs['gender']))
-                                    <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="old($user->password, $inputs['password'])" required autofocus />
-                                @else
-                                    <x-text-input id="input_password" class="block mt-1 w-1/3 mr-3" type="password" name="password" :value="$user->password" required autofocus />
-                                @endif
-                                <i id="eye" class="fa-solid fa-eye w-6 h-6 cursor-pointer"></i>
+                                <p class="block mt-1 w-3/4">******************</p>
                             </div>
                         </div>
 
