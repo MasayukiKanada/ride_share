@@ -35,7 +35,7 @@
 
             <!-- Zip -->
             <div class="mt-4">
-                <x-input-label for="zip" :value="__('郵便番号')" />
+                <x-input-label for="zip" :value="__('郵便番号（ハイフン(-)を除く）')" />
 
                 <x-text-input id="zip" class="block mt-1 w-full" type="text" name="zip" :value="old('zip')" required />
             </div>
