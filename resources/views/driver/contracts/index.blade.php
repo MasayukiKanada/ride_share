@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            利用履歴一覧
+            オファー履歴一覧
         </h2>
     </x-slot>
     <div class="py-12">
@@ -11,17 +11,17 @@
 
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
-                    <!------利用前履歴と利用済履歴で表示を変える-------->
+                    <!------提供前履歴と提供済履歴で表示を変える-------->
 
-                    <!-----利用前履歴------>
+                    <!-----提供前履歴------>
                     <div class="px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">利用前履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">提供前履歴</h3>
                         @if ($before_cons->isEmpty())
-                            <p>利用前の履歴はありません。</p>
+                            <p>提供前の履歴はありません。</p>
                         @else
                             <table>
                                 <tr class="border-b border-gray-400">
-                                    <th class="border-r border-gray-400 py-2">利用日</th>
+                                    <th class="border-r border-gray-400 py-2">提供日</th>
                                     <th class="border-r border-gray-400 py-2">目的地</th>
                                     <th>詳細</th>
                                 </tr>
@@ -37,15 +37,15 @@
                     </div>
 
 
-                    <!-----利用済履歴------>
+                    <!-----提供済履歴------>
                     <div class="bg-gray-100 shadow sm:rounded-l px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">利用済履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">提供済履歴</h3>
                         @if ($after_cons->isEmpty())
-                            <p>利用済の履歴はありません。</p>
+                            <p>提供済の履歴はありません。</p>
                         @else
                         <table>
                             <tr class="border-b border-gray-400">
-                                <th class="border-r border-gray-400 py-2">利用日</th>
+                                <th class="border-r border-gray-400 py-2">提供日</th>
                                 <th class="border-r border-gray-400 py-2">目的地</th>
                                 <th>詳細</th>
                             </tr>
