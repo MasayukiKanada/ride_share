@@ -12,6 +12,10 @@ use Illuminate\Http\RedirectResponse;
 
 class ContractController extends Controller
 {
+
+    /*-----------------------------------
+    -- 利用者側
+    -----------------------------------*/
     public function index() {
         $userID = Auth::id();
         $today = date('Y-m-d');
@@ -84,5 +88,26 @@ class ContractController extends Controller
         $contract->con_number = $request->req_number;
         $contract->save();
         return view('user.contracts.complete')->with('status', 'contract-stored');
+    }
+
+    /*-----------------------------------
+    -- ドライバー側
+    -----------------------------------*/
+
+    public function DriverIndex() {
+        $driverID = Auth::id();
+        $today = date('Y-m-d');
+        //本日よりも前の予約履歴を検索
+        $before_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','>', $today )->get();
+        //本日以後の予約履歴を検索
+        $after_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','<=', $today )->get();
+        return view('driver.contracts.index', compact('driverID','before_cons', 'after_cons'));
+    }
+
+    public function DriverCreate(){
+        $user = Auth::user();
+        //新規予約の日付初期値を7日後に設定
+        $defaultDate = date("Y-m-d", strtotime("+7 day"));
+        return view('driver.contracts.create', compact('user','defaultDate'));
     }
 }

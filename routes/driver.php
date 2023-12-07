@@ -27,17 +27,18 @@ Route::get('/dashboard', function () {
 })->middleware(['auth:drivers'])->name('dashboard');
 
 
-// Route::prefix('driver') // 頭に contacts をつける
-//  //->middleware(['auth:users']) // 認証
-//  ->name('contracts') // ルート名
-//  ->controller(ContractController::class) // コントローラ指定(laravel9から)
-//  ->group(function(){ // グループ化
-//     Route::get('/contracts', 'index')->name('driver.contracts'); // 名前つきルート
-//     Route::get('/contracts/create', 'create')->name('driver.contracts.create');
-// });
-
-//Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
-
+Route:://prefix('driver') // 頭に driverをつける
+ middleware(['auth:drivers']) // 認証
+ ->name('contracts.') // ルート名
+ ->controller(ContractController::class) // コントローラ指定(laravel9から)
+ ->group(function(){ // グループ化
+    Route::get('/contracts', 'DriverIndex')->name('index'); // 名前つきルート
+    Route::get('/contracts/show/{id}', 'DriverShow')->name('show');
+    Route::get('/contracts/create', 'DriverCreate')->name('create');
+    Route::post('/contracts/select', 'DriverSelect')->name('select');
+    Route::post('/contracts/confirm', 'DriverConfirm')->name('confirm');
+    Route::post('/contracts/complete', 'DriverStore')->name('store');
+});
 
 
 
