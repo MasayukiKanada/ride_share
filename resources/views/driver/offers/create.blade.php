@@ -21,84 +21,108 @@
                         <!-- ID -->
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
 
-                        <!-- 利用日 -->
+                        <!-- 提供日 -->
                         <div class="mb-6">
-                            <x-input-label for="req_date" :value="__('希望利用日')" />
-                            @if (isset($inputs['req_date']))
-                                <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $inputs['req_date'])" required autofocus />
+                            <x-input-label for="offer_date" :value="__('希望提供日')" />
+                            @if (isset($inputs['offer_date']))
+                                <x-text-input id="offer_date" class="block mt-1 w-full" type="date" name="offer_date" :value="old('offer_date', $inputs['offer_date'])" offeruired autofocus />
                             @else
-                                <x-text-input id="req_date" class="block mt-1 w-full" type="date" name="req_date" :value="old('req_date', $defaultDate)" required autofocus />
+                                <x-text-input id="offer_date" class="block mt-1 w-full" type="date" name="offer_date" :value="old('offer_date', $defaultDate)" offeruired autofocus />
                             @endif
 
                         </div>
 
-                        <!-- 乗車場所 -->
+                        <!-- 開始地点 -->
                         <div class="mb-6">
-                            <x-input-label for="req_on_place" :value="__('希望乗車場所')" />
+                            <x-input-label for="offer_on_place" :value="__('開始地点')" />
 
                             <div class="flex">
-                                @if (isset($inputs['req_on_place']))
-                                    <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $inputs['req_on_place'])" required autofocus />
+                                @if (isset($inputs['offer_on_place']))
+                                    <x-text-input id="offer_on_place" class="block mt-1 w-3/4" type="text" name="offer_on_place" :value="old('offer_on_place', $inputs['offer_on_place'])" offeruired autofocus />
                                 @else
-                                    <x-text-input id="req_on_place" class="block mt-1 w-3/4" type="text" name="req_on_place" :value="old('req_on_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                    <x-text-input id="offer_on_place" class="block mt-1 w-3/4" type="text" name="offer_on_place" :value="old('offer_on_place', $user->pref.$user->town.$user->address)" offeruired autofocus />
                                 @endif
                                     <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
                             </div>
                         </div>
 
-                        <!-- 乗車時間 -->
+                        <!-- 開始時間 -->
                         <div class="mb-6">
-                            <x-input-label for="req_on_time" :value="__('希望乗車時間')" />
+                            <x-input-label for="offer_on_time" :value="__('開始時間')" />
 
-                            @if (isset($inputs['req_on_time']))
-                                <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time', $inputs['req_on_time'])" required autofocus />
+                            @if (isset($inputs['offer_on_time']))
+                                <x-text-input id="offer_on_time" class="block mt-1 w-full" type="time" name="offer_on_time" :value="old('offer_on_time', $inputs['offer_on_time'])" offeruired autofocus />
                             @else
-                                <x-text-input id="req_on_time" class="block mt-1 w-full" type="time" name="req_on_time" :value="old('req_on_time')" required autofocus />
+                                <x-text-input id="offer_on_time" class="block mt-1 w-full" type="time" name="offer_on_time" :value="old('offer_on_time')" offeruired autofocus />
                             @endif
 
                         </div>
 
-                        <!-- 下車場所 -->
+                        <!-- 終了地点 -->
                         <div class="mb-6">
-                            <x-input-label for="req_off_place" :value="__('希望下車場所')" />
+                            <x-input-label for="offer_off_place" :value="__('終了地点')" />
 
                             <div class="flex">
-                                @if (isset($inputs['req_off_place']))
-                                    <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $inputs['req_off_place'])" required autofocus />
+                                @if (isset($inputs['offer_off_place']))
+                                    <x-text-input id="offer_off_place" class="block mt-1 w-3/4" type="text" name="offer_off_place" :value="old('offer_off_place', $inputs['offer_off_place'])" offeruired autofocus />
                                 @else
-                                    <x-text-input id="req_off_place" class="block mt-1 w-3/4" type="text" name="req_off_place" :value="old('req_off_place', $user->pref.$user->town.$user->address)" required autofocus />
+                                    <x-text-input id="offer_off_place" class="block mt-1 w-3/4" type="text" name="offer_off_place" :value="old('offer_off_place', $user->pref.$user->town.$user->address)" offeruired autofocus />
                                 @endif
                                     <a target="_blank" class="block mt-1 w-1/4 ml-3 text-center rounded-md py-3 bg-green-600 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="https://www.google.com/maps/place/{{ $user->pref.$user->town.$user->address }}">地図から探す</a>
                             </div>
                         </div>
 
-                        <!-- 下車時間 -->
+                        <!-- 終了時間 -->
                         <div class="mb-6">
-                            <x-input-label for="req_off_time" :value="__('下車時間目安')" />
+                            <x-input-label for="offer_off_time" :value="__('終了時間')" />
 
-                            @if (isset($inputs['req_off_time']))
-                                <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time', $inputs['req_off_time'])" required autofocus />
+                            @if (isset($inputs['offer_off_time']))
+                                <x-text-input id="offer_off_time" class="block mt-1 w-full" type="time" name="offer_off_time" :value="old('offer_off_time', $inputs['offer_off_time'])" offeruired autofocus />
                             @else
-                                <x-text-input id="req_off_time" class="block mt-1 w-full" type="time" name="req_off_time" :value="old('req_off_time')" required autofocus />
+                                <x-text-input id="offer_off_time" class="block mt-1 w-full" type="time" name="offer_off_time" :value="old('offer_off_time')" offeruired autofocus />
                             @endif
                         </div>
 
-                        <!-- 利用人数 -->
+                        <!-- 提供車種 -->
                         <div class="mb-6">
-                            <x-input-label for="req_number" :value="__('希望利用人数')" />
+                            <x-input-label for="offer_car" :value="__('提供車種')" />
 
-                            @if (isset($inputs['req_number']))
-                                <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number', $inputs['req_number'])" required autofocus />
+                            @if (isset($inputs['offer_car']))
+                                <x-text-input id="offer_car" class="block mt-1 w-full" type="text" name="offer_car" :value="old('offer_car', $inputs['offer_car'])" offeruired autofocus />
                             @else
-                                <x-text-input id="req_number" class="block mt-1 w-full" type="number" name="req_number" :value="old('req_number')" required autofocus />
+                                <x-text-input id="offer_car" class="block mt-1 w-full" type="text" name="offer_car" :value="old('offer_car')" offeruired autofocus />
                             @endif
-
                         </div>
+
+                        <div class="flexbox flex">
+                            <!-- 乗車定員 -->
+                            <div class="mb-6 w-full mr-3">
+                                <x-input-label for="offer_capacity" :value="__('乗車定員（人数）')" />
+
+                                @if (isset($inputs['offer_capacity']))
+                                    <x-text-input id="offer_capacity" class="block mt-1 w-full" type="number" name="offer_capacity" :value="old('offer_capacity', $inputs['offer_capacity'])" offeruired autofocus />
+                                @else
+                                    <x-text-input id="offer_capacity" class="block mt-1 w-full" type="number" name="offer_capacity" :value="old('offer_capacity')" offeruired autofocus />
+                                @endif
+                            </div>
+
+                            <!-- 希望提供料金 -->
+                            <div class="mb-6 w-full ml-3">
+                                <x-input-label for="offer_fee" :value="__('希望提供料金（円）')" />
+
+                                @if (isset($inputs['offer_fee']))
+                                    <x-text-input id="offer_fee" class="block mt-1 w-full" type="number" name="offer_fee" :value="old('offer_fee', $inputs['offer_fee'])" offeruired autofocus />
+                                @else
+                                    <x-text-input id="offer_fee" class="block mt-1 w-full" type="number" name="offer_fee" :value="old('offer_fee')" offeruired autofocus />
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="mt-4">
-                            <a href="/dashboard" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-gray-700">戻る</a>
+                            <a href="/driver/dashboard" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-gray-700">戻る</a>
                         </div>
                         <div class="mt-6 flex items-center justify-start gap-x-6">
-                            <button type="submit" class="block w-1/3 md:w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">候補を選択する</button>
+                            <button type="submit" class="block w-1/3 md:w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">オファー内容を確認する</button>
                         </div>
                     </form>
                 </div>
