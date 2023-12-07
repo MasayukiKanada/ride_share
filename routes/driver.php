@@ -10,6 +10,8 @@ use App\Http\Controllers\Driver\Auth\RegisteredUserController;
 use App\Http\Controllers\Driver\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\DriverOfferController;
 
 /*
 |-----------------------
@@ -29,15 +31,15 @@ Route::get('/dashboard', function () {
 
 Route:://prefix('driver') // 頭に driverをつける
  middleware(['auth:drivers']) // 認証
- ->name('contracts.') // ルート名
- ->controller(ContractController::class) // コントローラ指定(laravel9から)
+ ->name('offers.') // ルート名
+ ->controller(DriverOfferController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
-    Route::get('/contracts', 'DriverIndex')->name('index'); // 名前つきルート
-    Route::get('/contracts/show/{id}', 'DriverShow')->name('show');
-    Route::get('/contracts/create', 'DriverCreate')->name('create');
-    Route::post('/contracts/select', 'DriverSelect')->name('select');
-    Route::post('/contracts/confirm', 'DriverConfirm')->name('confirm');
-    Route::post('/contracts/complete', 'DriverStore')->name('store');
+    Route::get('/offers', 'DriverIndex')->name('index'); // 名前つきルート
+    Route::get('/offers/show/{id}', 'DriverShow')->name('show');
+    Route::get('/offers/create', 'DriverCreate')->name('create');
+    Route::post('/offers/select', 'DriverSelect')->name('select');
+    Route::post('/offers/confirm', 'DriverConfirm')->name('confirm');
+    Route::post('/offers/complete', 'DriverStore')->name('store');
 });
 
 
