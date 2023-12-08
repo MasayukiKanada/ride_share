@@ -28,7 +28,20 @@ Route::get('/dashboard', function () {
     return view('driver.dashboard');
 })->middleware(['auth:drivers'])->name('dashboard');
 
+/*---------ドライバー情報管理-----------*/
+Route::prefix('driver') // 頭にdriverをつける
+ ->middleware(['auth:drivers']) // 認証
+ //->name('driver') // ルート名
+ ->controller(DriverController::class) // コントローラ指定(laravel9から)
+ ->group(function(){ // グループ化
+    Route::get('/show', 'show')->name('show'); // 名前つきルート
+    Route::get('/edit', 'edit')->name('edit');
+    Route::post('/confirm', 'confirm')->name('confirm');
+    Route::post('/update', 'update')->name('update');
+    Route::post('/complete', 'destroy')->name('destroy');
+});
 
+/*---------オファー管理-----------*/
 Route:://prefix('driver') // 頭に driverをつける
  middleware(['auth:drivers']) // 認証
  ->name('offers.') // ルート名
@@ -40,8 +53,6 @@ Route:://prefix('driver') // 頭に driverをつける
     Route::post('/offers/confirm', 'confirm')->name('confirm');
     Route::post('/offers/complete', 'store')->name('store');
 });
-
-
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])

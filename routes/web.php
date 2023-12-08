@@ -21,7 +21,20 @@ Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth:users'])->name('dashboard');
 
+/*---------利用者情報管理-----------*/
+Route::prefix('user') // 頭に userをつける
+ ->middleware(['auth:users']) // 認証
+ //->name('user') // ルート名
+ ->controller(UserController::class) // コントローラ指定(laravel9から)
+ ->group(function(){ // グループ化
+    Route::get('/show', 'show')->name('show'); // 名前つきルート
+    Route::get('/edit', 'edit')->name('edit');
+    Route::post('/confirm', 'confirm')->name('confirm');
+    Route::post('/update', 'update')->name('update');
+    Route::post('/complete', 'destroy')->name('destroy');
+});
 
+/*---------利用予約管理-----------*/
 Route::prefix('user') // 頭に userをつける
  ->middleware(['auth:users']) // 認証
  ->name('contracts.') // ルート名
@@ -33,18 +46,6 @@ Route::prefix('user') // 頭に userをつける
     Route::post('/contracts/select', 'select')->name('select');
     Route::post('/contracts/confirm', 'confirm')->name('confirm');
     Route::post('/contracts/complete', 'store')->name('store');
-});
-
-Route::prefix('user') // 頭に userをつける
- ->middleware(['auth:users']) // 認証
- //->name('user') // ルート名
- ->controller(UserController::class) // コントローラ指定(laravel9から)
- ->group(function(){ // グループ化
-    Route::get('/show', 'show')->name('show'); // 名前つきルート
-    Route::get('/edit', 'edit')->name('edit');
-    Route::post('/confirm', 'confirm')->name('confirm');
-    Route::post('/update', 'update')->name('update');
-    Route::post('/complete', 'destroy')->name('destroy');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
