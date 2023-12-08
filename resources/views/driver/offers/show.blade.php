@@ -14,36 +14,36 @@
                             <div class="border-t">
                                 <dl>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用日</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_date }}</dd>
+                                        <dt class="text-sm font-medium">提供日</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_date }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">乗車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_on_place }}</dd>
+                                        <dt class="text-sm font-medium">開始地点</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_on_place }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">乗車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_on_time }}</dd>
+                                        <dt class="text-sm font-medium">開始時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_on_time }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">下車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_off_place }}</dd>
+                                        <dt class="text-sm font-medium">開始場所</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_off_place }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">下車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_off_time }}</dd>
+                                        <dt class="text-sm font-medium">開始時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_off_time }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用人数</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_number }}</dd>
+                                        <dt class="text-sm font-medium">提供車種</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_car }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用料金</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_fee }}円</dd>
+                                        <dt class="text-sm font-medium">乗車定員</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_capacity }}名</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">ランク</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">ランク</dd>
+                                        <dt class="text-sm font-medium">提供料金</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_fee }}円</dd>
                                     </div>
                                 </dl>
                             </div>

@@ -23,6 +23,11 @@ class DriverOfferController extends Controller
         return view('driver.offers.index', compact('driverID','before_offers', 'after_offers'));
     }
 
+    public function show($id){
+        $offer = DB::table('driver_offers')->find($id);
+        return view('driver.offers.show', compact('offer'));
+    }
+
     public function create(){
         $user = Auth::user();
         //新規オファーの日付初期値を7日後に設定
