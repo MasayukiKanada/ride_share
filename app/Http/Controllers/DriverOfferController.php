@@ -17,10 +17,10 @@ class DriverOfferController extends Controller
         $driverID = Auth::id();
         $today = date('Y-m-d');
         //本日よりも前の予約履歴を検索
-        $before_cons = DB::table('driver_offers')->Where('driver_id', $driverID)->whereDate('offer_date','>', $today )->get();
+        $before_offers = DB::table('driver_offers')->Where('driver_id', $driverID)->whereDate('offer_date','>', $today )->get();
         //本日以後の予約履歴を検索
-        $after_cons = DB::table('driver_offers')->Where('driver_id', $driverID)->whereDate('offer_date','<=', $today )->get();
-        return view('driver.offers.index', compact('driverID','before_cons', 'after_cons'));
+        $after_offers = DB::table('driver_offers')->Where('driver_id', $driverID)->whereDate('offer_date','<=', $today )->get();
+        return view('driver.offers.index', compact('driverID','before_offers', 'after_offers'));
     }
 
     public function create(){
