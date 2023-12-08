@@ -15,65 +15,69 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                    <form method="POST" action="{{ route('user.contracts.store') }}">
+                    <form method="POST" action="{{ route('driver.offers.store') }}">
                         @csrf
 
                         <!-- 送信用隠しデータ -->
                         <input type="hidden" id="user_id" name="user_id" value="{{ auth()->id() }}">
-                        <input type="hidden" id="driver_id" name="driver_id" value="{{  $inputs['driver_id'] }}">
-                        <input type="hidden" id="req_date" name="req_date" value="{{  $inputs['req_date'] }}">
-                        <input type="hidden" id="req_on_place" name="req_on_place" value="{{  $inputs['req_on_place'] }}">
-                        <input type="hidden" id="req_on_time" name="req_on_time" value="{{  $inputs['req_on_time'] }}">
-                        <input type="hidden" id="req_off_place" name="req_off_place" value="{{  $inputs['req_off_place'] }}">
-                        <input type="hidden" id="req_off_time" name="req_off_time" value="{{  $inputs['req_off_time'] }}">
+                        <input type="hidden" id="offer_date" name="offer_date" value="{{  $inputs['offer_date'] }}">
+                        <input type="hidden" id="offer_on_place" name="offer_on_place" value="{{  $inputs['offer_on_place'] }}">
+                        <input type="hidden" id="offer_on_time" name="offer_on_time" value="{{  $inputs['offer_on_time'] }}">
+                        <input type="hidden" id="offer_off_place" name="offer_off_place" value="{{  $inputs['offer_off_place'] }}">
+                        <input type="hidden" id="offer_off_time" name="offer_off_time" value="{{  $inputs['offer_off_time'] }}">
                         <input type="hidden" id="offer_fee" name="offer_fee" value="{{  $inputs['offer_fee'] }}">
-                        <input type="hidden" id="req_number" name="req_number" value="{{  $inputs['req_number'] }}">
+                        <input type="hidden" id="offer_car" name="offer_car" value="{{  $inputs['offer_car'] }}">
+                        <input type="hidden" id="offer_capacity" name="offer_capacity" value="{{  $inputs['offer_capacity'] }}">
 
                         <!-- 表 -->
                         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                             <div class="border-t">
                                 <dl>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用者名</dt>
+                                        <dt class="text-sm font-medium">ドライバー名</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ Auth::user()->name }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用日</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_date'] }}</dd>
+                                        <dt class="text-sm font-medium">希望提供日</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_date'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">乗車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_place'] }}</dd>
+                                        <dt class="text-sm font-medium">開始地点</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_on_place'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">乗車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_time'] }}</dd>
+                                        <dt class="text-sm font-medium">開始時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_on_time'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">下車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_off_place'] }}</dd>
+                                        <dt class="text-sm font-medium">終了地点</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_off_place'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">下車時間</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_off_time'] }}</dd>
+                                        <dt class="text-sm font-medium">終了時間</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_off_time'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用人数</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_number'] }}名</dd>
+                                        <dt class="text-sm font-medium">提供車種</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_car'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">利用料金</dt>
+                                        <dt class="text-sm font-medium">乗車定員</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_capacity'] }}名</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">希望提供料金（分／円）</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_fee'] }}円</dd>
                                     </div>
                                 </dl>
                             </div>
                         </div>
                         <div class="mt-4">
-                            <x-primary-button name="back">候補一覧に戻る</x-primary-button>
+                            <x-primary-button name="back">入力画面に戻る</x-primary-button>
                         </div>
 
                         <div class="mt-6 flex items-center justify-start gap-x-6">
-                            <button type="submit" class="block w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">予約を確定する</button>
+                            <button type="submit" class="block w-1/4 rounded-md bg-indigo-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">オファーを確定する</button>
                           </div>
                     </form>
                 </div>

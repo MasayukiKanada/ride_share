@@ -34,12 +34,11 @@ Route:://prefix('driver') // 頭に driverをつける
  ->name('offers.') // ルート名
  ->controller(DriverOfferController::class) // コントローラ指定(laravel9から)
  ->group(function(){ // グループ化
-    Route::get('/offers', 'DriverIndex')->name('index'); // 名前つきルート
-    Route::get('/offers/show/{id}', 'DriverShow')->name('show');
-    Route::get('/offers/create', 'DriverCreate')->name('create');
-    Route::post('/offers/select', 'DriverSelect')->name('select');
-    Route::post('/offers/confirm', 'DriverConfirm')->name('confirm');
-    Route::post('/offers/complete', 'DriverStore')->name('store');
+    Route::get('/offers', 'index')->name('index'); // 名前つきルート
+    Route::get('/offers/show/{id}', 'show')->name('show');
+    Route::get('/offers/create', 'create')->name('create');
+    Route::post('/offers/confirm', 'confirm')->name('confirm');
+    Route::post('/offers/complete', 'store')->name('store');
 });
 
 
