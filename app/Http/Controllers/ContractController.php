@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Contract;
-use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
@@ -94,5 +93,19 @@ class ContractController extends Controller
     -- ドライバー側
     -----------------------------------*/
 
+    public function DriverIndex() {
+        $driverID = Auth::id();
+        $today = date('Y-m-d');
+        //本日よりも前の予約履歴を検索
+        $before_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','>', $today )->get();
+        //本日以後の予約履歴を検索
+        $after_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','<=', $today )->get();
+        return view('driver.contracts.index', compact('driverID','before_cons', 'after_cons'));
+    }
+
+    public function DriverShow($id){
+        $contract = DB::table('contracts')->find($id);
+        return view('driver.contracts.show', compact('contract'));
+    }
 
 }

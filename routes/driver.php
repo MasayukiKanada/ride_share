@@ -54,6 +54,16 @@ Route:://prefix('driver') // 頭に driverをつける
     Route::post('/offers/complete', 'store')->name('store');
 });
 
+/*---------成約済オファー管理-----------*/
+Route:://prefix('driver') // 頭に driverをつける
+ middleware(['auth:drivers']) // 認証
+ ->name('contracts.') // ルート名
+ ->controller(ContractController::class) // コントローラ指定(laravel9から)
+ ->group(function(){ // グループ化
+    Route::get('/contracts', 'DriverIndex')->name('index'); // 名前つきルート
+    Route::get('/contracts/show/{id}', 'DriverShow')->name('show');
+});
+
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
