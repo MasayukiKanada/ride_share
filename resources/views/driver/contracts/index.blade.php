@@ -15,9 +15,9 @@
 
                     <!-----利用前履歴------>
                     <div class="px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">提供前履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">提供前オファー</h3>
                         @if ($before_cons->isEmpty())
-                            <p>提供前の履歴はありません。</p>
+                            <p>提供前のオファーはありません。</p>
                         @else
                             <table>
                                 <tr class="border-b border-gray-400">
@@ -39,9 +39,9 @@
 
                     <!-----利用済履歴------>
                     <div class="bg-gray-100 shadow sm:rounded-l px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">提供済履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">提供済オファー</h3>
                         @if ($after_cons->isEmpty())
-                            <p>提供済の履歴はありません。</p>
+                            <p>提供済のオファーはありません。</p>
                         @else
                         <table>
                             <tr class="border-b border-gray-400">
