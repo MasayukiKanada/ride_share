@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            利用履歴一覧
+            利用予約履歴
         </h2>
     </x-slot>
     <div class="py-12">
@@ -15,9 +15,9 @@
 
                     <!-----利用前履歴------>
                     <div class="px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">利用前履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">利用前予約</h3>
                         @if ($before_cons->isEmpty())
-                            <p>利用前の履歴はありません。</p>
+                            <p>利用前の予約はありません。</p>
                         @else
                             <table>
                                 <tr class="border-b border-gray-400">
@@ -39,9 +39,9 @@
 
                     <!-----利用済履歴------>
                     <div class="bg-gray-100 shadow sm:rounded-l px-3 py-6">
-                        <h3 class="text-lg text-zinc-600 font-semibold">利用済履歴</h3>
+                        <h3 class="text-lg text-zinc-600 font-semibold">利用済予約</h3>
                         @if ($after_cons->isEmpty())
-                            <p>利用済の履歴はありません。</p>
+                            <p>利用済の予約はありません。</p>
                         @else
                         <table>
                             <tr class="border-b border-gray-400">
