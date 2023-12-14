@@ -42,16 +42,16 @@
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_date'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">乗車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_place'] }}</dd>
+                                        <dt class="text-sm font-medium">乗車地のplus code</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0"><a class="text-blue-600 hover:text-blue-300" target="_blank" href="https://plus.codes/map/{{ $inputs['req_on_place'] }}">{{ $inputs['req_on_place'] }}</a></dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">乗車時間</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_on_time'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">下車場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_off_place'] }}</dd>
+                                        <dt class="text-sm font-medium">下車地のplus code</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0"><a class="text-blue-600 hover:text-blue-300" target="_blank" href="https://plus.codes/map/{{ $inputs['req_off_place'] }}">{{ $inputs['req_off_place'] }}</a></dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">下車時間</dt>
