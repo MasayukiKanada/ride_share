@@ -125,9 +125,9 @@
                             </h2>
                             <p class="text-sm mb-1">1. [地図から取得]をタップすると、<img class="inline-block h-6 w-6" src="{{ asset('storage/images/pluscode_logo.png') }}"> Plus codes の地図画面に移ります。</p>
                             <p class="text-sm mb-1">2. 地図画面上でドラッグして指定したい地点をタップします。</p>
-                            <p class="text-sm mb-1">3.画面下部に表示されるパネル内にある <strong class="text-red-500">plus code (20種類の英数字混在コード)から現在地の都市名まで</strong>をコピーします。</p>
-                            <p class="text-sm">4.コピーした plus code を入力欄に貼り付けると、その場所を共有できます。</p>
-                            <img class="w-2/3" src="{{ asset('storage/images/pluscode_howto.png') }}">
+                            <p class="text-sm mb-1">3.画面下部に表示されるパネル内にある <strong class="text-red-500">plus code (20種類の英数字混在コード)から現在地の都市名まで</strong>(下画像の赤枠箇所)をコピーします。</p>
+                            <p class="text-sm mb-3">4.コピーした plus code を入力欄に貼り付けると、その場所を共有できます。</p>
+                            <img class="w-2/3 max-w-md" src="{{ asset('storage/images/pluscode_howto.png') }}">
                         </div>
                     </div>
                 </div>
