@@ -20,8 +20,11 @@ use App\Http\Controllers\DriverOfferController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('driver.welcome');
+// });
 Route::get('/', function () {
-    return view('driver.welcome');
+    return view('user.welcome');
 });
 
 Route::get('/dashboard', function () {
