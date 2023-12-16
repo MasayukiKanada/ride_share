@@ -6,6 +6,11 @@
 
         <title>Laravel</title>
 
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="{{ asset('favicons/favicon-16×16.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('favicons/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('favicons/android-chrome-192×192.png') }}">
+
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
