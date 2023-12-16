@@ -16,6 +16,16 @@
                         {{ __('ダッシュボード') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('driver.offers.index')" :active="request()->routeIs('driver.offers.index')">
+                        {{ __('成約前オファー履歴') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('driver.contracts.index')" :active="request()->routeIs('driver.contracts.index')">
+                        {{ __('成約済オファー履歴') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -34,14 +44,17 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('driver.show')">
+                            {{ __('マイページ') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('driver.logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('driver.logout')"
                                     onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                                this.closest('form').submit();" class="text-red-500 font-semibold">
+                                {{ __('ログアウト') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -64,7 +77,13 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('driver.dashboard')" :active="request()->routeIs('driver.dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('ダッシュボード') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('driver.offers.index')" :active="request()->routeIs('driver.offers.index')">
+                {{ __('成約前オファー履歴') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('driver.contracts.index')" :active="request()->routeIs('driver.contracts.index')">
+                {{ __('成約済オファー履歴') }}
             </x-responsive-nav-link>
         </div>
 
@@ -76,14 +95,17 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('driver.show')">
+                        {{ __('マイページ') }}
+                </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('driver.logout') }}">
                     @csrf
 
                     <x-responsive-nav-link :href="route('driver.logout')"
                             onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                                        this.closest('form').submit();" class="text-red-500 font-semibold">
+                        {{ __('ログアウト') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
