@@ -32,6 +32,13 @@
             #app-logo{
                 height: 120px;
             }
+            .virticalline{
+                color: gray;
+                margin-left:14px;
+            }
+            a:hover{
+                opacity: 0.7;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -65,7 +72,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 mb-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    eライドシェアの利用者はこちらからどうぞ。お好きな日時と場所を指定していただければ、ご希望の条件から提供可能なドライバーの候補を提案します。あなたの条件に合えば、ドライバーがいつでも行きたい場所へあなたをお連れします。
+                                    利用者はこちらからどうぞ。<br>eライドシェアにてお好きな日時と場所を指定していただければ、ご希望の条件から提供可能なドライバーの候補を提案します。<br>あなたの条件に合えば、ドライバーがいつでも行きたい場所へあなたをお連れします。
                                 </div>
                                 @if (Route::has('user.login'))
                                     <div class="hidden sm:block mt-2">
@@ -75,6 +82,7 @@
                                             <a href="{{ route('user.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
 
                                             @if (Route::has('user.register'))
+                                                <span class="virticalline">|</span>
                                                 <a href="{{ route('user.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">新規登録</a>
                                             @endif
                                         @endauth
@@ -91,7 +99,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 mb-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    ドライバーはこちらから、あなたがシェア可能な日時と場所を指定できます。eライドシェアを利用すれば、あなたの空いた時間でマッチした利用者を乗車させてあげることができます。
+                                    ドライバーはこちらからどうぞ。<br>あなたがシェア可能な日時と場所を指定できます。<br>eライドシェアを利用すれば、あなたの空いた時間でマッチした利用者を乗車させてあげることができます。
                                 </div>
                                 @if (Route::has('driver.login'))
                                     <div class="hidden sm:block mt-2">
@@ -101,6 +109,7 @@
                                             <a href="{{ route('driver.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
 
                                             @if (Route::has('driver.register'))
+                                                <span class="virticalline">|</span>
                                                 <a href="{{ route('driver.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">新規登録</a>
                                             @endif
                                         @endauth
