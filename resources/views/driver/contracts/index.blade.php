@@ -22,12 +22,16 @@
                             <table>
                                 <tr class="border-b border-gray-400">
                                     <th class="border-r border-gray-400 py-2">提供日</th>
-                                    <th class="border-r border-gray-400 py-2">目的地</th>
+                                    <th class="border-r border-gray-400 py-2">乗車地</th>
+                                    <th class="border-r border-gray-400 py-2">乗車時間</th>
+                                    <th class="border-r border-gray-400 py-2">下車地</th>
                                     <th>詳細</th>
                                 </tr>
                                 @foreach($before_cons as $before_con)
                                             <tr class="border-b border-gray-400">
                                                 <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_date }}</td>
+                                                <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_on_place }}</td>
+                                                <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_on_time }}</td>
                                                 <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_off_place }}</td>
                                                 <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$before_con->id]) }}">詳細を見る</a></td>
                                             </tr>
@@ -46,12 +50,16 @@
                         <table>
                             <tr class="border-b border-gray-400">
                                 <th class="border-r border-gray-400 py-2">提供日</th>
-                                <th class="border-r border-gray-400 py-2">目的地</th>
+                                <th class="border-r border-gray-400 py-2">乗車地</th>
+                                <th class="border-r border-gray-400 py-2">乗車時間</th>
+                                <th class="border-r border-gray-400 py-2">下車地</th>
                                 <th>詳細</th>
                             </tr>
                             @foreach($after_cons as $after_con)
                                         <tr class="border-b border-gray-400">
                                             <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_date }}</td>
+                                            <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_on_place }}</td>
+                                            <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_on_time }}</td>
                                             <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_off_place }}</td>
                                             <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$after_con->id]) }}">詳細を見る</a></td>
                                         </tr>
