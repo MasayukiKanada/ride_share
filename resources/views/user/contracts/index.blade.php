@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            利用予約履歴
+            予約履歴
         </h2>
     </x-slot>
     <div class="py-12">

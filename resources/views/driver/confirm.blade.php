@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <h2>更新内容の確認</h2>
+            更新内容の確認
         </h2>
     </x-slot>
 

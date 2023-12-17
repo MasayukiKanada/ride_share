@@ -18,7 +18,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('user.contracts.index')" :active="request()->routeIs('user.contracts.index')">
-                        {{ __('利用履歴一覧') }}
+                        {{ __('予約履歴') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 {{ __('ダッシュボード') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.contracts.index')" :active="request()->routeIs('user.contracts.index')">
-                {{ __('利用履歴一覧') }}
+                {{ __('予約履歴') }}
             </x-responsive-nav-link>
         </div>
 

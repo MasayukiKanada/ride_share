@@ -16,7 +16,7 @@
                     </div>
                     <div class="mb-8 flex items-center justify-center">
                         <button class="w-2/3 md:w-1/2 lg:w-1/3 rounded-md bg-indigo-600 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                            <a class="block px-3 py-2" href="{{ route('user.contracts.index') }}">利用履歴一覧</a>
+                            <a class="block px-3 py-2" href="{{ route('user.contracts.index') }}">予約履歴</a>
                         </button>
                     </div>
                     <div class="mb-8 flex items-center justify-center">

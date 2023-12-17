@@ -55,7 +55,7 @@
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_capacity }}名</td>
                                     <td class="border-r border-gray-400 px-2 py-2">ランク表示</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_fee }}円</td>
-                                    <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><button type="submit" class="block px-2 py-2">選択する</a></td>
+                                    <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 px-2 py-2"><button type="submit">選択する</td>
                                 </tr>
                             @endforeach
                         </table>
