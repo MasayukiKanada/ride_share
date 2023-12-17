@@ -26,6 +26,12 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            .front-section{
+                max-width: 1000px;
+            }
+            #app-logo{
+                height: 120px;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -44,9 +50,9 @@
                 </div>
             @endif --}}
 
-            <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center py-8 sm:justify-start sm:pt-0 h-16">
-                    <img class="h-16 w-auto text-gray-700 sm:h-8" src="{{ asset('storage/images/app_logo.png') }}">
+            <div class="front-section max-w-xl mx-auto sm:px-6 lg:px-8">
+                <div class="flex justify-center py-8 sm:justify-start sm:pt-0 h-20">
+                    <img id="app-logo" class="w-auto text-gray-700 sm:h-8" src="{{ asset('storage/images/app_logo.png') }}">
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
