@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        利用者用
+        <h2 class="font-semibold mb-6">利用者ログイン</h2>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
