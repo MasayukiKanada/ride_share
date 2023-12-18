@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            予約候補一覧
+            予約可能オファー一覧
         </h2>
     </x-slot>
     <div class="py-12">
@@ -12,7 +12,7 @@
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
                     @if ($offers->isEmpty())
-                        <p>申し訳ございません。<br>利用できる候補はありません。</p>
+                        <p>申し訳ございません。<br>予約できるオファーはありません。</p>
                         <form method="POST" action="{{ route('user.contracts.confirm') }}">
                             @csrf
                             <div class="mt-4">
@@ -26,15 +26,16 @@
                             </div>
                         </form>
                     @else
+                    <p class="mb-6">ご予約可能なオファーよりご希望のものを選択ください。</p>
                     <form method="POST" action="{{ route('user.contracts.confirm') }}">
                         @csrf
                         <table class="w-full">
                             <tr class="border-b border-gray-400">
                                 <th class="border-r border-gray-400 py-2">利用日</th>
-                                <th class="border-r border-gray-400 py-2">目的地</th>
+                                <th class="border-r border-gray-400 py-2">下車地点のplus code</th>
                                 <th class="border-r border-gray-400 py-2">車種</th>
                                 <th class="border-r border-gray-400 py-2">乗車定員</th>
-                                <th class="border-r border-gray-400 py-2">ランク</th>
+                                <th class="border-r border-gray-400 py-2">ドライバーズランク</th>
                                 <th class="border-r border-gray-400 py-2">利用料金</th>
                                 <th>選択</th>
                             </tr>
