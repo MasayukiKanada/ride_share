@@ -16,10 +16,10 @@ class ResetPasswordNotification extends Notification
      *
      * @return void
      */
-    private $token;
-    public function __construct($token)
+    private $url;
+    public function __construct($url)
     {
-        $this->token = $token;
+        $this->url = $url;
     }
 
     /**
@@ -41,11 +41,10 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail(mixed $notifiable)
     {
-        $url = urldecode(url('reset-password', $this->token . '?email=' . $notifiable->email));
         return (new MailMessage)
                     ->subject(config('app.name'). ' パスワードリセットURLの送付')
                     ->greeting('いつもご利用頂きありがとうございます。')
-                    ->action('パスワードリセット', ['reset_url' => $url])
+                    ->action('パスワードリセット', $this->url)
                     ->line('こちらからパスワードリセットを行ってください。');
     }
 

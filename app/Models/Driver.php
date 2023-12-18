@@ -62,6 +62,7 @@ class Driver extends Authenticatable
 
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPasswordNotification($token));
+        $url = url("reset-password/$token");
+        $this->notify(new ResetPasswordNotification($url));
     }
 }
