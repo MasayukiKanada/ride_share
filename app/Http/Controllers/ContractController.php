@@ -89,6 +89,14 @@ class ContractController extends Controller
         return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 
+    public function destroy($id){
+        $contract = Contract::find($id);
+        $contract->delete();
+
+        return to_route('user.contracts.index');
+    }
+
+
     /*-----------------------------------
     -- ドライバー側
     -----------------------------------*/

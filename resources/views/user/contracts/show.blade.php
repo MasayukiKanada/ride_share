@@ -48,6 +48,12 @@
                                 </dl>
                             </div>
                         </div>
+                        <form id="delete_{{ $contract->id }}" method="POST" action="{{ route('user.contracts.destroy', [$contract->id]) }}">
+                            @csrf
+                            <div class="mt-6 flex items-center justify-start gap-x-6">
+                                <button data-id="{{ $contract->id }}" onclick="deletePost(this)" type="button" class="block w-1/4 rounded-md bg-pink-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">予約をキャンセルする</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-overlay">
                         <div class="modal-window">
@@ -77,6 +83,15 @@
             </div>
         </div>
     </div>
+    <script>
+        //削除時の確認メッセージ
+        function deletePost(e){
+            'use strict'
+            if(confirm('本当に削除していいですか？')){
+                document.getElementById('delete_' + e.dataset.id).submit();
+            }
+        }
+    </script>
 </x-app-layout>
 
 
