@@ -64,4 +64,12 @@ class DriverOfferController extends Controller
         return view('driver.offers.complete')->with('status', 'offer-stored');
     }
 
+    public function destroy($id){
+        $offer = DriverOffer::find($id);
+        $offer->delete();
+
+        return to_route('driver.offers.index');
+    }
+
+
 }

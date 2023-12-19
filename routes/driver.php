@@ -55,6 +55,7 @@ Route:://prefix('driver') // 頭に driverをつける
     Route::get('/offers/create', 'create')->name('create');
     Route::post('/offers/confirm', 'confirm')->name('confirm');
     Route::post('/offers/complete', 'store')->name('store');
+    Route::post('/offers/destroy/{id}', 'destroy')->name('destroy');
 });
 
 /*---------成約済オファー管理-----------*/

@@ -116,4 +116,5 @@ class ContractController extends Controller
         return view('driver.contracts.show', compact('contract'));
     }
 
+
 }
