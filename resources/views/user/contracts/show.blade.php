@@ -48,12 +48,15 @@
                                 </dl>
                             </div>
                         </div>
+                        <!-----利用前予約のみキャンセルボタンを表示------>
+                        @if (date("Y-m-d")<$contract->con_date)
                         <form id="delete_{{ $contract->id }}" method="POST" action="{{ route('user.contracts.destroy', [$contract->id]) }}">
                             @csrf
                             <div class="mt-6 flex items-center justify-start gap-x-6">
                                 <button data-id="{{ $contract->id }}" onclick="deletePost(this)" type="button" class="block w-1/4 rounded-md bg-pink-600 px-3 py-3 text-sm font-semibold text-white shadow-sm hover:bg-pink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">予約をキャンセルする</button>
                             </div>
                         </form>
+                        @endif
                     </div>
                     <div class="modal-overlay">
                         <div class="modal-window">
