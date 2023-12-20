@@ -93,7 +93,7 @@
         //削除時の確認メッセージ
         function deletePost(e){
             'use strict'
-            if(confirm('本当に取り消していいですか？')){
+            if(confirm('本当に取り消してよろしいですか？')){
                 document.getElementById('delete_' + e.dataset.id).submit();
             }
         }

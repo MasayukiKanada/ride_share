@@ -12,10 +12,13 @@
                     @if ($status == 'contract-stored')
                     <p class="max-w-2xl text-sm text-gray-500">利用予約が完了しました。</p>
                     @endif
+                    @if ($status == 'contract-destroyed')
+                    <p class="max-w-2xl text-sm text-gray-500">予約の取り消しが完了しました。</p>
+                    @endif
                 </div>
             </div>
             <div class="mt-4">
-                <a href="{{ route('user.contracts.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-gray-700">履歴一覧に戻る</a>
+                <a href="{{ route('user.contracts.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-gray-700">予約履歴に戻る</a>
             </div>
         </div>
     </div>

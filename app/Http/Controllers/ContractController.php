@@ -93,7 +93,7 @@ class ContractController extends Controller
         $contract = Contract::find($id);
         $contract->delete();
 
-        return to_route('user.contracts.index');
+        return view('user.contracts.complete')->with('status', 'contract-destroyed');
     }
 
 

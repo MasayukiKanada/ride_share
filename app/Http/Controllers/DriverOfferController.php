@@ -68,7 +68,7 @@ class DriverOfferController extends Controller
         $offer = DriverOffer::find($id);
         $offer->delete();
 
-        return to_route('driver.offers.index');
+        return view('driver.offers.complete')->with('status', 'offer-destroyed');
     }
 
 

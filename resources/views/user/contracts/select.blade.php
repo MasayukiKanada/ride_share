@@ -12,7 +12,7 @@
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
                     @if ($offers->isEmpty())
-                        <p>申し訳ございません。<br>予約できるオファーはありません。</p>
+                        <p>申し訳ございません。<br>予約できるオファーはありません。<br>入力内容を変更して再度お進みください。</p>
                         <form method="POST" action="{{ route('user.contracts.confirm') }}">
                             @csrf
                             <div class="mt-4">

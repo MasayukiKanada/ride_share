@@ -46,7 +46,7 @@ Route::prefix('user') // 頭に userをつける
     Route::post('/contracts/select', 'select')->name('select');
     Route::post('/contracts/confirm', 'confirm')->name('confirm');
     Route::post('/contracts/complete', 'store')->name('store');
-    Route::post('/contracts/destroy/{id}', 'destroy')->name('destroy');
+    Route::post('/contracts/complete/{id}', 'destroy')->name('destroy');
 });
 
 //Route::get('user/contracts', [ContractController::class, 'index'])->name('user.contracts');
