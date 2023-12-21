@@ -9,19 +9,24 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
+use App\Models\Driver;
 
 class OfferConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $offer;
+    public $driver;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($offer, $driver)
     {
-        //
+        $this->offer = $offer;
+        $this->driver = $driver;
     }
 
     /**
@@ -35,7 +40,7 @@ class OfferConfirmMail extends Mailable
 
         return $envelope->subject(config('app.name').'オファー登録が完了しました')
             ->from('from@example.com', config('app.name'))
-            ->to('to@example.com');
+            ->to($this->driver->email);
     }
 
     /**
@@ -45,9 +50,9 @@ class OfferConfirmMail extends Mailable
      */
     public function content()
     {
-        return new Content(
-            view: 'emails.offerConfirm',
-        );
+        $content = new Content();
+
+        return $content->view('emails.reserveConfirm');
     }
 
     /**

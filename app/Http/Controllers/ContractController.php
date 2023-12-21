@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Contract;
+use App\Models\User;
 use App\Mail\ReserveConfirmMail;
 
 
@@ -89,8 +90,9 @@ class ContractController extends Controller
         $contract->con_fee = $request->offer_fee;
         $contract->con_number = $request->req_number;
         $contract->save();
+        $user = User::findOrFail(Auth::id());
 
-        Mail::send(new ReserveConfirmMail());
+        Mail::send(new ReserveConfirmMail($contract, $user));
         return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 

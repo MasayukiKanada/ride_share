@@ -63,8 +63,9 @@ class DriverOfferController extends Controller
         $offer->offer_capacity = $request->offer_capacity;
         $offer->offer_fee = $request->offer_fee;
         $offer->save();
+        $driver = Driver::findOrFail(Auth::id());
 
-        Mail::send(new OfferConfirmMail());
+        Mail::send(new OfferConfirmMail($offer, $driver));
         return view('driver.offers.complete')->with('status', 'offer-stored');
     }
 

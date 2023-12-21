@@ -9,19 +9,24 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
+use App\Models\User;
 
 class ReserveConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $contract;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($contract, $user)
     {
-        //
+        $this->contract = $contract;
+        $this->user = $user;
     }
 
     /**
@@ -36,7 +41,7 @@ class ReserveConfirmMail extends Mailable
 
         return $envelope->subject(config('app.name').'予約が完了しました')
             ->from('from@example.com', config('app.name'))
-            ->to('to@example.com');
+            ->to($this->user->email);
     }
 
     /**
@@ -46,9 +51,9 @@ class ReserveConfirmMail extends Mailable
      */
     public function content()
     {
-        return new Content(
-            view: 'emails.reserveConfirm',
-        );
+        $content = new Content();
+
+        return $content->view('emails.reserveConfirm');
     }
 
     /**
