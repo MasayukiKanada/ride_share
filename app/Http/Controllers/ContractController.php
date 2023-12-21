@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Contract;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Contract;
+use App\Mail\ReserveConfirmMail;
+
 
 
 class ContractController extends Controller
@@ -86,6 +89,8 @@ class ContractController extends Controller
         $contract->con_fee = $request->offer_fee;
         $contract->con_number = $request->req_number;
         $contract->save();
+
+        Mail::send(new ReserveConfirmMail());
         return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 

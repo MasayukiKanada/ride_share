@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
                     @if ($status == 'contract-stored')
-                    <p class="max-w-2xl text-sm text-gray-500">利用予約が完了しました。</p>
+                    <p class="mb-2 max-w-2xl text-sm text-gray-500">利用予約が完了しました。</p>
+                    <p class="max-w-2xl text-sm text-gray-500">ご登録のメールアドレス宛に利用予約完了のメールが送信されます。<br>ご確認ください。</p>
                     @endif
                     @if ($status == 'contract-destroyed')
                     <p class="max-w-2xl text-sm text-gray-500">予約の取り消しが完了しました。</p>

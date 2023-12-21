@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Contract;
 use App\Models\User;
 use App\Models\Driver;
+use App\Mail\OfferConfirmMail;
 use App\Models\DriverOffer;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
 class DriverOfferController extends Controller
@@ -61,6 +63,8 @@ class DriverOfferController extends Controller
         $offer->offer_capacity = $request->offer_capacity;
         $offer->offer_fee = $request->offer_fee;
         $offer->save();
+
+        Mail::send(new OfferConfirmMail());
         return view('driver.offers.complete')->with('status', 'offer-stored');
     }
 

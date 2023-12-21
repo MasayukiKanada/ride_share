@@ -11,6 +11,7 @@
                 <div class="px-4 py-5 sm:px-6">
                     @if ($status == 'offer-stored')
                         <p class="max-w-2xl text-sm text-gray-500">オファー登録が完了しました。</p>
+                        <p class="max-w-2xl text-sm text-gray-500">なお、オファー完了メールがご登録のメールアドレス宛に送信されます。<br>内容をご確認ください。</p>
                     @endif
                     @if ($status == 'offer-destroyed')
                         <p class="max-w-2xl text-sm text-gray-500">オファーの取り消しが完了しました。</p>
