@@ -52,7 +52,7 @@ class OfferConfirmMail extends Mailable
     {
         $content = new Content();
 
-        return $content->view('emails.reserveConfirm');
+        return $content->view('emails.offerConfirm');
     }
 
     /**
