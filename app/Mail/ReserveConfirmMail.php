@@ -51,9 +51,16 @@ class ReserveConfirmMail extends Mailable
      */
     public function content()
     {
-        $content = new Content();
+        return new Content(
+            markdown: 'emails.reserveConfirm',
+            with:[
+                'contract' => $this->contract,
+                'user' => $this->user,
+            ]
+        );
+        // $content = new Content();
 
-        return $content->view('emails.reserveConfirm');
+        // return $content->view('emails.reserveConfirm');
     }
 
     /**

@@ -50,9 +50,16 @@ class OfferConfirmMail extends Mailable
      */
     public function content()
     {
-        $content = new Content();
+        return new Content(
+            markdown: 'emails.offerConfirm',
+            with:[
+                'contract' => $this->offer,
+                'user' => $this->driver,
+            ]
+        );
+        // $content = new Content();
 
-        return $content->view('emails.offerConfirm');
+        // return $content->view('emails.offerConfirm');
     }
 
     /**
