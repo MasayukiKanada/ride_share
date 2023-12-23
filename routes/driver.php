@@ -24,7 +24,7 @@ use App\Http\Controllers\DriverOfferController;
 //     return view('driver.welcome');
 // });
 Route::get('/', function () {
-    return view('user.welcome');
+    return view('driver.welcome');
 });
 
 Route::get('/dashboard', function () {

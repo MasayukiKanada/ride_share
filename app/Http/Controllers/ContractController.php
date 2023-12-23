@@ -90,11 +90,12 @@ class ContractController extends Controller
         $contract->con_fee = $request->offer_fee;
         $contract->con_number = $request->req_number;
         $contract->save();
+
         $user = User::findOrFail(Auth::id());
         $driver = Driver::findOrFail($contract->driver_id);
-
         Mail::send(new ReserveConfirmMail($contract, $user));
         Mail::send(new ReserveConfirmToDriverMail($contract, $driver));
+
         return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 
