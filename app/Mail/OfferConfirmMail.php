@@ -38,7 +38,7 @@ class OfferConfirmMail extends Mailable
     {
         $envelope = new Envelope();
 
-        return $envelope->subject(config('app.name').'オファー登録が完了しました')
+        return $envelope->subject(config('app.name').' オファー登録が完了しました')
             ->from('from@example.com', config('app.name'))
             ->to($this->driver->email);
     }

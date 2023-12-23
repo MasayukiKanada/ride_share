@@ -9,9 +9,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
+                    @if ($offers->isEmpty())
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
-                    @if ($offers->isEmpty())
                         <p>申し訳ございません。<br>予約できるオファーはありません。<br>入力内容を変更して再度お進みください。</p>
                         <form method="POST" action="{{ route('user.contracts.confirm') }}">
                             @csrf
@@ -26,6 +26,13 @@
                             </div>
                         </form>
                     @else
+                    <div class="progressbar mb-10">
+                        <div class="item">STEP.1<br>予約内容の入力</div>
+                        <div class="item active">STEP.2<br>オファーから選択</div>
+                        <div class="item">STEP.3<br>予約内容の確認</div>
+                        <div class="item">STEP.4<br>完了</div>
+                    </div>
+
                     <p class="mb-6">ご予約可能なオファーよりご希望のものを選択ください。</p>
                     <form method="POST" action="{{ route('user.contracts.confirm') }}">
                         @csrf

@@ -39,7 +39,7 @@ class ReserveConfirmMail extends Mailable
 
         $envelope = new Envelope();
 
-        return $envelope->subject(config('app.name').'予約が完了しました')
+        return $envelope->subject(config('app.name').' 予約が完了しました')
             ->from('from@example.com', config('app.name'))
             ->to($this->user->email);
     }
