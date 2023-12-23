@@ -43,9 +43,7 @@ class ResetPasswordNotification extends Notification
     {
         return (new MailMessage)
                     ->subject(config('app.name'). ' パスワードリセットURLの送付')
-                    ->greeting('いつもご利用頂きありがとうございます。')
-                    ->action('パスワードリセット', $this->url)
-                    ->line('こちらからパスワードリセットを行ってください。');
+                    ->markdown('emails.resetPassword', ['url' => $this->url]);
     }
 
     /**
