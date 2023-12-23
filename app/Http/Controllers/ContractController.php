@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Contract;
 use App\Models\User;
+use App\Models\Driver;
 use App\Mail\ReserveConfirmMail;
-
-
+use App\Mail\ReserveConfirmToDriverMail;
 
 class ContractController extends Controller
 {
@@ -91,8 +91,10 @@ class ContractController extends Controller
         $contract->con_number = $request->req_number;
         $contract->save();
         $user = User::findOrFail(Auth::id());
+        $driver = Driver::findOrFail($contract->driver_id);
 
         Mail::send(new ReserveConfirmMail($contract, $user));
+        Mail::send(new ReserveConfirmToDriverMail($contract, $driver));
         return view('user.contracts.complete')->with('status', 'contract-stored');
     }
 
