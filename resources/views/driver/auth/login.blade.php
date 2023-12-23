@@ -16,6 +16,13 @@
         <form method="POST" action="{{ route('driver.login') }}">
             @csrf
 
+            <!-- デモ用ログイン情報 -->
+            <div class="mb-6 pl-3">
+                <p class="mb-1 text-gray-500 font-medium">デモ用ログイン情報</p>
+                <p class="mb-1 text-gray-500">メールアドレス：driver@sample.com</p>
+                <p class="text-gray-500">パスワード：password123</p>
+            </div>
+
             <!-- Email Address -->
             <div>
                 <x-input-label for="email" :value="__('メールアドレス')" />
