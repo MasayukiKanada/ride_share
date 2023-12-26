@@ -18,8 +18,8 @@ class ContractFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => fake()->numberBetween(1, 10),
-            'driver_id' => fake()->numberBetween(1, 10),
+            'user_id' => fake()->numberBetween(1, 30),
+            'driver_id' => fake()->numberBetween(1, 30),
             'con_date' => fake()->date(),
             'con_on_place' => fake()->address(),
             'con_on_time' => fake()->time(),

@@ -16,6 +16,18 @@ class DriverSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Driver::factory(10)->create();
+        DB::table('drivers')->insert([
+            'name' => 'デモドライバー',
+            'email' => 'driver@sample.com',
+            'tel' => '090-9999-9999',
+            'zip' => '8888888',
+            'pref' => '兵庫県',
+            'town' => '神崎郡神河町',
+            'address' => '鍛冶111',
+            'birthday' => '1999-9-9',
+            'gender' => 0,
+            'password' => Hash::make('password123'),
+        ]);
+        \App\Models\Driver::factory(30)->create();
     }
 }
