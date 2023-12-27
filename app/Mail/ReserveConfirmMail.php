@@ -38,10 +38,11 @@ class ReserveConfirmMail extends Mailable
     {
 
         $envelope = new Envelope();
+        $to = array($this->user->email,'demo@e-rideshare.rojo.jp');
 
         return $envelope->subject(config('app.name').' 予約が完了しました')
-            ->from('from@example.com', config('app.name'))
-            ->to($this->user->email);
+            ->from('demo@e-rideshare.rojo.jp', config('app.name'))
+            ->to($to);
     }
 
     /**

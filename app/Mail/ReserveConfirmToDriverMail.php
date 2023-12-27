@@ -38,10 +38,11 @@ class ReserveConfirmToDriverMail extends Mailable
     public function envelope()
     {
         $envelope = new Envelope();
+        $to = array($this->driver->email,'demo@e-rideshare.rojo.jp');
 
         return $envelope->subject(config('app.name').' オファーが成約しました')
-            ->from('from@example.com', config('app.name'))
-            ->to($this->driver->email);
+            ->from('demo@e-rideshare.rojo.jp', config('app.name'))
+            ->to($to);
     }
 
     /**

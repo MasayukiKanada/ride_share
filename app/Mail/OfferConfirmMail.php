@@ -37,10 +37,11 @@ class OfferConfirmMail extends Mailable
     public function envelope()
     {
         $envelope = new Envelope();
+        $to = array($this->driver->email,'demo@e-rideshare.rojo.jp');
 
         return $envelope->subject(config('app.name').' オファー登録が完了しました')
-            ->from('from@example.com', config('app.name'))
-            ->to($this->driver->email);
+            ->from('demo@e-rideshare.rojo.jp', config('app.name'))
+            ->to($to);
     }
 
     /**
