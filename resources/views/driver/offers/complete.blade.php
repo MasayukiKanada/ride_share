@@ -11,9 +11,14 @@
                 <div class="px-4 py-5 sm:px-6">
                     @if ($status == 'offer-stored')
 
-                    <div class="progressbar driver mb-10">
+                    <div class="progressbar driver mb-10 hidden sm:flex">
                         <div class="item">STEP.1<br>オファー内容の入力</div>
                         <div class="item">STEP.2<br>オファー内容の確認</div>
+                        <div class="item active">STEP.3<br>完了</div>
+                    </div>
+                    <div class="progressbar driver mb-10 sm:hidden">
+                        <div class="item">STEP.1<br>入力</div>
+                        <div class="item">STEP.2<br>確認</div>
                         <div class="item active">STEP.3<br>完了</div>
                     </div>
 

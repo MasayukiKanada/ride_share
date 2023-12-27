@@ -10,10 +10,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div class="progressbar mb-10">
+                    <div class="progressbar mb-10 hidden sm:flex">
                         <div class="item">STEP.1<br>予約内容の入力</div>
                         <div class="item">STEP.2<br>オファーから選択</div>
                         <div class="item active">STEP.3<br>予約内容の確認</div>
+                        <div class="item">STEP.4<br>完了</div>
+                    </div>
+                    <div class="progressbar mb-10 sm:hidden">
+                        <div class="item">STEP.1<br>入力</div>
+                        <div class="item">STEP.2<br>選択</div>
+                        <div class="item active">STEP.3<br>確認</div>
                         <div class="item">STEP.4<br>完了</div>
                     </div>
 

@@ -10,9 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div class="progressbar driver mb-10">
+                    <div class="progressbar driver mb-10 hidden sm:flex">
                         <div class="item active">STEP.1<br>オファー内容の入力</div>
                         <div class="item">STEP.2<br>オファー内容の確認</div>
+                        <div class="item">STEP.3<br>完了</div>
+                    </div>
+                    <div class="progressbar driver mb-10 sm:hidden">
+                        <div class="item active">STEP.1<br>入力</div>
+                        <div class="item">STEP.2<br>確認</div>
                         <div class="item">STEP.3<br>完了</div>
                     </div>
 
@@ -96,7 +101,7 @@
                             @if (isset($inputs['offer_car']))
                                 <x-text-input id="offer_car" class="block mt-1 w-full" type="text" name="offer_car" :value="old('offer_car', $inputs['offer_car'])" required autofocus />
                             @else
-                                <x-text-input id="offer_car" class="block mt-1 w-full" type="text" name="offer_car" :value="old('offer_car')" required autofocus />
+                                <x-text-input id="offer_car" class="block mt-1 w-full" type="text" name="offer_car" :value="old('offer_car', $user->own_car)" required autofocus />
                             @endif
                         </div>
 
@@ -108,7 +113,7 @@
                                 @if (isset($inputs['offer_capacity']))
                                     <x-text-input id="offer_capacity" class="block mt-1 w-full" type="number" name="offer_capacity" :value="old('offer_capacity', $inputs['offer_capacity'])" required autofocus />
                                 @else
-                                    <x-text-input id="offer_capacity" class="block mt-1 w-full" type="number" name="offer_capacity" :value="old('offer_capacity')" required autofocus />
+                                    <x-text-input id="offer_capacity" class="block mt-1 w-full" type="number" name="offer_capacity" :value="old('offer_capacity', $user->own_capacity)" required autofocus />
                                 @endif
                             </div>
 
@@ -119,7 +124,7 @@
                                 @if (isset($inputs['offer_fee']))
                                     <x-text-input id="offer_fee" class="block mt-1 w-full" type="number" name="offer_fee" :value="old('offer_fee', $inputs['offer_fee'])" required autofocus />
                                 @else
-                                    <x-text-input id="offer_fee" class="block mt-1 w-full" type="number" name="offer_fee" :value="old('offer_fee')" required autofocus />
+                                    <x-text-input id="offer_fee" class="block mt-1 w-full" type="number" name="offer_fee" :value="old('offer_fee', $user->basic_fee)" required autofocus />
                                 @endif
                             </div>
                         </div>

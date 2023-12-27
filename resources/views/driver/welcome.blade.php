@@ -75,7 +75,7 @@
                                     利用者はこちらからどうぞ。<br>eライドシェアにてお好きな日時と場所を指定していただければ、ご希望の条件から提供可能なドライバーの候補を提案します。<br>あなたの条件に合えば、ドライバーがいつでも行きたい場所へあなたをお連れします。
                                 </div>
                                 @if (Route::has('user.login'))
-                                    <div class="hidden sm:block mt-2">
+                                    <div class="sm:block mt-2">
                                         @auth('users')
                                             <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ダッシュボード</a>
                                         @else
@@ -102,7 +102,7 @@
                                     ドライバーはこちらからどうぞ。<br>あなたがシェア可能な日時と場所を指定できます。<br>eライドシェアを利用すれば、あなたの空いた時間でマッチした利用者を乗車させてあげることができます。
                                 </div>
                                 @if (Route::has('driver.login'))
-                                    <div class="hidden sm:block mt-2">
+                                    <div class="sm:block mt-2">
                                         @auth('drivers')
                                             <a href="{{ url('/driver/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ダッシュボード</a>
                                         @else
