@@ -42,7 +42,7 @@
                                 <th class="border-r border-gray-400 py-2">下車地点のplus code</th>
                                 <th class="border-r border-gray-400 py-2">車種</th>
                                 <th class="border-r border-gray-400 py-2">乗車定員</th>
-                                <th class="border-r border-gray-400 py-2">ドライバーズランク</th>
+                                {{-- <th class="border-r border-gray-400 py-2">ドライバーズランク</th> --}}
                                 <th class="border-r border-gray-400 py-2">利用料金</th>
                                 <th>選択</th>
                             </tr>
@@ -55,13 +55,14 @@
                                     <input type="hidden" id="req_off_place" name="req_off_place" value="{{ $inputs['req_off_place'] }}">
                                     <input type="hidden" id="req_off_time" name="req_off_time" value="{{ $inputs['req_off_time'] }}">
                                     <input type="hidden" id="req_number" name="req_number" value="{{ $inputs['req_number'] }}">
+                                    <input type="hidden" id="offer_car" name="offer_car" value="{{ $offer->offer_car }}">
                                     <!---ランク代入---->
                                     <input type="hidden" id="offer_fee" name="offer_fee" value="{{ $offer->offer_fee }}">
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_date }}</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $inputs['req_off_place'] }}</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_car }}</td>
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_capacity }}名</td>
-                                    <td class="border-r border-gray-400 px-2 py-2">ランク表示</td>
+                                    {{-- <td class="border-r border-gray-400 px-2 py-2">ランク表示</td> --}}
                                     <td class="border-r border-gray-400 px-2 py-2">{{ $offer->offer_fee }}円</td>
                                     <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 px-2 py-2"><button type="submit">選択する</td>
                                 </tr>
