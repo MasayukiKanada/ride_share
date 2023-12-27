@@ -33,7 +33,7 @@
                                                 <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_on_place }}</td>
                                                 <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_on_time }}</td>
                                                 <td class="border-r border-gray-400 px-2 py-2">{{ $before_con->con_off_place }}</td>
-                                                <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$before_con->id]) }}">詳細を見る</a></td>
+                                                <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$before_con->id]) }}">見る</a></td>
                                             </tr>
                                 @endforeach
                             </table>
@@ -61,7 +61,7 @@
                                             <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_on_place }}</td>
                                             <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_on_time }}</td>
                                             <td class="border-r border-gray-400 px-2 py-2">{{ $after_con->con_off_place }}</td>
-                                            <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$after_con->id]) }}">詳細を見る</a></td>
+                                            <td class="text-center bg-indigo-600 font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><a class="block px-2 py-2" href="{{ route('driver.contracts.show', [$after_con->id]) }}">見る</a></td>
                                         </tr>
                             @endforeach
                         @endif
