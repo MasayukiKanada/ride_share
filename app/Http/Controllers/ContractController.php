@@ -23,9 +23,9 @@ class ContractController extends Controller
         $userID = Auth::id();
         $today = date('Y-m-d');
         //本日よりも前の予約履歴を検索
-        $before_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','>', $today )->get();
+        $before_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','>', $today )->orderBy('con_date', 'asc')->get();
         //本日以後の予約履歴を検索
-        $after_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','<=', $today )->get();
+        $after_cons = DB::table('contracts')->Where('user_id', $userID)->whereDate('con_date','<=', $today )->orderBy('con_date', 'desc')->get();
         return view('user.contracts.index', compact('userID','before_cons', 'after_cons'));
     }
 
@@ -48,7 +48,7 @@ class ContractController extends Controller
         $req_off_time = $request->req_off_time;
         $req_number = $request->req_number;
         //（利用者側の）利用希望日・時間・人数に合う（ドライバー側の）提供希望日・時間・定員を検索する
-        $offers = DB::table('driver_offers')->where('offer_date', $req_date)->where('offer_on_time','<', $req_on_time)->where('offer_off_time', '>', $req_off_time)->where('offer_capacity', '>', $req_number)->get();
+        $offers = DB::table('driver_offers')->where('offer_date', $req_date)->where('offer_on_time','<', $req_on_time)->where('offer_off_time', '>', $req_off_time)->where('offer_capacity', '>', $req_number)->orderBy('offer_fee', 'asc')->get();
         return view('user.contracts.select', compact('inputs', 'offers'));
     }
 
@@ -116,9 +116,9 @@ class ContractController extends Controller
         $driverID = Auth::id();
         $today = date('Y-m-d');
         //本日よりも前の予約履歴を検索
-        $before_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','>', $today )->get();
+        $before_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','>', $today )->orderBy('con_date', 'asc')->get();
         //本日以後の予約履歴を検索
-        $after_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','<=', $today )->get();
+        $after_cons = DB::table('contracts')->Where('driver_id', $driverID)->whereDate('con_date','<=', $today )->orderBy('con_date', 'desc')->get();
         return view('driver.contracts.index', compact('driverID','before_cons', 'after_cons'));
     }
 
