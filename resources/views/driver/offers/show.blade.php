@@ -19,15 +19,15 @@
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">開始地点</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_on_place }}</dd>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0"><a class="text-blue-600 hover:text-blue-300" target="_blank" href="https://plus.codes/map/{{ $offer->offer_on_place }}">{{ $offer->offer_on_place }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">開始時間</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_on_time }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        <dt class="text-sm font-medium">開始場所</dt>
-                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $offer->offer_off_place }}</dd>
+                                        <dt class="text-sm font-medium">終了地点</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0"><a class="text-blue-600 hover:text-blue-300" target="_blank" href="https://plus.codes/map/{{ $offer->offer_off_place }}">{{ $offer->offer_off_place }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">開始時間</dt>

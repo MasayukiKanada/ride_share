@@ -7,12 +7,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-3 sm:p-6 bg-white border-b border-gray-200">
 
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
                     <!-----履歴------>
-                    <div class="px-3 py-6">
+                    <div class="sm:px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">成約前オファー</h3>
                         @if ($before_offers->isEmpty())
                             <p>成約前のオファーはありません。</p>

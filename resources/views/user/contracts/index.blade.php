@@ -7,14 +7,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-3 sm:p-6 bg-white border-b border-gray-200">
 
                     <p class="mb-6">{{ Auth::user()->name }}様</p>
 
                     <!------利用前履歴と利用済履歴で表示を変える-------->
 
                     <!-----利用前履歴------>
-                    <div class="px-3 py-6">
+                    <div class="sm:px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">利用前予約</h3>
                         @if ($before_cons->isEmpty())
                             <p>利用前の予約はありません。</p>
@@ -42,7 +42,7 @@
 
 
                     <!-----利用済履歴------>
-                    <div class="bg-gray-100 shadow sm:rounded-l px-3 py-6">
+                    <div class="bg-gray-100 shadow sm:rounded-l sm:px-3 py-6">
                         <h3 class="text-lg text-zinc-600 font-semibold">利用済予約</h3>
                         @if ($after_cons->isEmpty())
                             <p>利用済の予約はありません。</p>
