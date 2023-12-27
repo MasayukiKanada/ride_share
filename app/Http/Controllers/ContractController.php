@@ -88,6 +88,7 @@ class ContractController extends Controller
         $contract->con_off_place = $request->req_off_place;
         $contract->con_off_time = $request->req_off_time;
         $contract->con_fee = $request->offer_fee;
+        $contract->con_car = $request->offer_car;
         $contract->con_number = $request->req_number;
         $contract->save();
 

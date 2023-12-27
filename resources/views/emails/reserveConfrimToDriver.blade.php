@@ -12,6 +12,7 @@
 下車地点：<a class="text-blue-500" href="https://plus.codes/map/{{$contract->con_off_place}}">{{$contract->con_off_place}}</a><br>
 下車時間：{{$contract->con_off_time}}<br>
 利用人数：{{$contract->con_number}}<br>
+提供車種：{{$contract->con_car}}<br>
 提供料金：{{$contract->con_fee}}円<br>
 
 成約内容に基づいて利用者のお出迎えと送迎をお願い申し上げます。<br>

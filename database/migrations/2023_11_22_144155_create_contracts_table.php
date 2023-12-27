@@ -22,8 +22,9 @@ return new class extends Migration
             $table->time('con_on_time');
             $table->string('con_off_place', 255);
             $table->time('con_off_time');
-            $table->integer('con_fee');
             $table->tinyInteger('con_number');
+            $table->string('con_car', 255);
+            $table->integer('con_fee');
             $table->tinyInteger('con_eva')->nullable();
             $table->timestamps();
         });

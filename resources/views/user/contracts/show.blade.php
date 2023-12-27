@@ -38,6 +38,10 @@
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_number }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用車種</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_car }}</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用料金</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $contract->con_fee }}円</dd>
                                     </div>

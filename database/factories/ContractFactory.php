@@ -20,13 +20,14 @@ class ContractFactory extends Factory
         return [
             'user_id' => fake()->numberBetween(1, 30),
             'driver_id' => fake()->numberBetween(1, 30),
-            'con_date' => fake()->date(),
+            'con_date' => fake()->dateTimeBetween('-1 week','+30 days'),
             'con_on_place' => fake()->address(),
             'con_on_time' => fake()->time(),
             'con_off_place' => fake()->address(),
             'con_off_time' => fake()->time(),
-            'con_fee' => fake()->numberBetween(200, 2000),
             'con_number' => fake()->numberBetween(1, 7),
+            'con_car' => fake()->realText(10, 5),
+            'con_fee' => fake()->numberBetween(200, 2000),
         ];
     }
 }

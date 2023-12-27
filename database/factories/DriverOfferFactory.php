@@ -19,11 +19,11 @@ class DriverOfferFactory extends Factory
     {
         return [
             'driver_id' => fake()->numberBetween(1, 30),
-            'offer_date' => fake()->date(),
+            'offer_date' => fake()->dateTimeBetween('now','+1 year'),
             'offer_on_place' => fake()->address(),
-            'offer_on_time' => fake()->time(),
+            'offer_on_time' => '00:00',
             'offer_off_place' => fake()->address(),
-            'offer_off_time' => fake()->time(),
+            'offer_off_time' => '23:59',
             'offer_car' => fake()->word(),
             'offer_capacity' => fake()->numberBetween(1, 7),
             'offer_fee' => fake()->numberBetween(200, 2000),

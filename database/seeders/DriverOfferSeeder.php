@@ -16,6 +16,6 @@ class DriverOfferSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\DriverOffer::factory(30)->create();
+        \App\Models\DriverOffer::factory(3000)->create();
     }
 }

@@ -33,6 +33,7 @@
                         <input type="hidden" id="req_off_time" name="req_off_time" value="{{  $inputs['req_off_time'] }}">
                         <input type="hidden" id="offer_fee" name="offer_fee" value="{{  $inputs['offer_fee'] }}">
                         <input type="hidden" id="req_number" name="req_number" value="{{  $inputs['req_number'] }}">
+                        <input type="hidden" id="offer_car" name="offer_car" value="{{  $inputs['offer_car'] }}">
 
                         <!-- 表 -->
                         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
@@ -65,6 +66,10 @@
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用人数</dt>
                                         <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['req_number'] }}名</dd>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium">利用車種</dt>
+                                        <dd class="mt-1 text-sm sm:col-span-2 sm:mt-0">{{ $inputs['offer_car'] }}</dd>
                                     </div>
                                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium">利用料金</dt>
